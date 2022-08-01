@@ -7,6 +7,7 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT;
 const dbURL = process.env.MONGODB_URL;
+console.log(PORT, dbURL);
 //whitelist
 const whitelist = ["http://localhost:4001"];
 
