@@ -8,3 +8,5 @@ reviewsRouter.get("/", async (req, res) => {
   const reviews = await Review.find({}).exec();
   res.status(200).json(reviews);
 });
+
+module.exports = reviewsRouter;
