@@ -1,5 +1,6 @@
+import Autocomplete from "react-google-autocomplete";
+
 const Search = (props) => {
-  const Form = () => {};
   return (
     <div className="container">
       <div className="header">
@@ -16,6 +17,19 @@ const Search = (props) => {
           </div>
         {/* </form> */}
         <Form />
+
+
+        <div>
+          <label>Search</label>
+          <Autocomplete
+            //   apiKey={process.env.GOOGLE_API}
+            apiKey={process.env.REACT_APP_GOOGLE_API}
+            onPlaceSelected={(place) => {
+              console.log(place.formatted_address);
+            }}
+            placeholder="Search for a country"
+          />
+        </div>
       </div>
     </div>
   );
