@@ -10,6 +10,14 @@ const Search = (props) => {
           "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
           consectetur, adipisci velit..."
         </p>
+        {/* <form onSubmit={handlesubmit}> */}
+          <div>
+            <label>Search</label>
+            {/* <input onChange={handleChange} type="text" name="search" /> */}
+          </div>
+        {/* </form> */}
+        <Form />
+
 
         <div>
           <label>Search</label>
