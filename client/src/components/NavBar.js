@@ -29,11 +29,11 @@ function NavBar() {
             />
             <Link to="/register">
               {" "}
-              <Button variant="secondary">Register</Button>{" "}
+              <Button className="register" variant="secondary">Register</Button>{" "}
             </Link>
             <Link to="/login">
               {" "}
-              <Button variant="primary">Log In</Button>{" "}
+              <Button className="login" variant="primary">Log In</Button>{" "}
             </Link>
           </Nav>
         </Navbar.Collapse>
