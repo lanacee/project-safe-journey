@@ -1,13 +1,14 @@
 const mongoose = require('mongoose')
 
 const reviewSchema = mongoose.Schema({
-    location: {type: String, required: true},
-    racism_experience: { type: Number, max: 5, min: 0 },
-    lgbtqi_acceptance: { type: Number, max: 5, min: 0 },
-    womens_safety: { type: Number, max: 5, min: 0 },
+    user_id: { type: String, unique: true },
+    location: { type: String, required: true },
+    racism_experience: Boolean,
+    lgbtqi_acceptance: Boolean,
+    womens_safety: Boolean,
     images: [String],
     description: String,
-    user_id: {type: String, unique: true}
+    date: Date
 },
     { timestamps: true }
 )
