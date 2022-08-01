@@ -1,7 +1,7 @@
 import './App.css'
 import NavBar from './components/NavBar'
 import Search from './components/Search'
-import Carousel from './components/Carousel'
+import Carousels from './components/Carousels'
 import Quotes from './components/Quotes'
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
     <div className="App">
       <NavBar />
       <Search />
-      <Carousel />
+      <Carousels />
       <Quotes />
     </div>
   )
