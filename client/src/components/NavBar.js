@@ -16,8 +16,8 @@ function NavBar() {
                         <Nav.Link href="/home">⌂ Home </Nav.Link>
                         <Nav.Link href="/profile">♚ Profile</Nav.Link>
                         <Nav.Link href="/support">☮ Support Services</Nav.Link>
-                        <Link to="/register"> <Button variant="secondary">Register</Button>{' '} </Link>
-                        <Link to="/login"> <Button variant="primary">Log In</Button>{' '} </Link>
+                        <Link to="/register"> <Button className="register" variant="secondary">Register</Button>{' '} </Link>
+                        <Link to="/login"> <Button className="login" variant="primary">Log In</Button>{' '} </Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
