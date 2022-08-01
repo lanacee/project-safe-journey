@@ -37,14 +37,24 @@
   }
 }
 
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .continentTitle {
   text-decoration: none;
   color: white;
+  font-size: 20px;
 }
 
 .continentTitle:hover {
   text-decoration: underline;
   color: white;
+}
+
+.continentDesc {
+  font-size: 14px;
 }
 
 .register {
@@ -57,4 +67,45 @@
   max-width: 50%;
   height: fit-content;
   margin: 0 auto;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+ }
+ 
+ .carousel-control-next-icon {
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+ }
+
+.quote_container {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.quote_title {
+  margin-top: 50px;
+  text-align: center;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.quote {
+  margin-top: 5px;
+  grid-row: 2 / 3;
+  border: 2px solid black;
+  background-color: lightgray;
+  height: 180px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.quotemarks {
+  font-size: 80px;
+  height: 50px;
+}
+
+.references {
+  max-width: 50px;
+  border-radius: 30px;
 }
