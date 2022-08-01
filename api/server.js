@@ -10,9 +10,9 @@ const dbURL = process.env.MONGODB_URL;
 //whitelist
 const whitelist = ["http://localhost:4001"];
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello World");
+// });
 
 //app.use(express.urlencoded)
 //no longer the above, for react use below
