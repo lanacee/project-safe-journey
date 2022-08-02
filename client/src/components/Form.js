@@ -1,12 +1,112 @@
 import Autocomplete from "react-google-autocomplete";
 import { useState } from "react";
+import "./Form.css";
 
 const defaultValues = {
   country: "",
-  racism_experience: 0,
-  lgbtqi_acceptence: 0,
-  womens_safety: 0,
+  racism_experience: "0",
+  lgbtqi_acceptence: "0",
+  womens_safety: "0",
   description: "",
+};
+
+const Ratings = ({ name, handleChange, value }) => {
+  return (
+    // <div style={{ display: "flex" }}>
+
+    <div className="rating-group">
+      <input
+        onChange={handleChange}
+        disabled
+        checked={value === "0"}
+        class="rating__input rating__input--none"
+        name={name}
+        htmlFor={`rating-${name}-none`}
+        value="0"
+        type="radio"
+      />
+      <label
+        aria-label="1 star"
+        className="rating__label"
+        htmlFor={`rating-${name}-1`}
+      >
+        <span className="rating__icon rating__icon--star">★</span>
+      </label>
+      <input
+        onChange={handleChange}
+        className="rating__input"
+        name={name}
+        checked={value === "1"}
+        id={`rating-${name}-1`}
+        value="1"
+        type="radio"
+      />
+      <label
+        aria-label="2 stars"
+        className="rating__label"
+        htmlFor={`rating-${name}-2`}
+      >
+        <span className="rating__icon rating__icon--star">★</span>
+      </label>
+      <input
+        onChange={handleChange}
+        className="rating__input"
+        name={name}
+        checked={value === "2"}
+        id={`rating-${name}-2`}
+        value="2"
+        type="radio"
+      />
+      <label
+        aria-label="3 stars"
+        className="rating__label"
+        htmlFor={`rating-${name}-3`}
+      >
+        <span className="rating__icon rating__icon--star">★</span>
+      </label>
+      <input
+        onChange={handleChange}
+        className="rating__input"
+        name={name}
+        checked={value === "3"}
+        id={`rating-${name}-3`}
+        value="3"
+        type="radio"
+      />
+      <label
+        aria-label="4 stars"
+        className="rating__label"
+        htmlFor={`rating-${name}-4`}
+      >
+        <span className="rating__icon rating__icon--star">★</span>
+      </label>
+      <input
+        onChange={handleChange}
+        className="rating__input"
+        name={name}
+        checked={value === "4"}
+        id={`rating-${name}-4`}
+        value="4"
+        type="radio"
+      />
+      <label
+        aria-label="5 stars"
+        className="rating__label"
+        htmlFor={`rating-${name}-5`}
+      >
+        <span className="rating__icon rating__icon--star">★</span>
+      </label>
+      <input
+        onChange={handleChange}
+        className="rating__input"
+        name={name}
+        checked={value === "5"}
+        id={`rating-${name}-5`}
+        value="5"
+        type="radio"
+      />
+    </div>
+  );
 };
 
 const Form = () => {
@@ -14,6 +114,7 @@ const Form = () => {
 
   const handleChange = (event) => {
     const { name, value, checked, type } = event.target;
+    console.log(name, value, checked, type);
     setFields({
       ...fields,
       [name]: type === "checkbox" ? checked : value,
@@ -40,106 +141,31 @@ const Form = () => {
         />
       </div>
 
-      <div>
+      <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
         <label>As a member of the LGBTQI+ community</label>
-        {/* <input
-          onChange={handleChange}
-          name="lgbtqi_acceptance"
-          checked={fields.lgbtqi_acceptence}
-        /> */}
-        <body>
-          <div class="rate">
-            <input type="radio" id="star5" name="rate" value="5" />
-            <label for="star5" title="text">
-              5 stars
-            </label>
-            <input type="radio" id="star4" name="rate" value="4" />
-            <label for="star4" title="text">
-              4 stars
-            </label>
-            <input type="radio" id="star3" name="rate" value="3" />
-            <label for="star3" title="text">
-              3 stars
-            </label>
-            <input type="radio" id="star2" name="rate" value="2" />
-            <label for="star2" title="text">
-              2 stars
-            </label>
-            <input type="radio" id="star1" name="rate" value="1" />
-            <label for="star1" title="text">
-              1 star
-            </label>
-          </div>
-        </body>
+        <Ratings
+          name={"lgbtqi_acceptence"}
+          handleChange={handleChange}
+          value={fields.lgbtqi_acceptence}
+        />
       </div>
 
-      <div>
+      <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
         <label>As a person of colour</label>
-        {/* <input
-          type="radio"
-          onChange={handleChange}
-          name="racism_experience"
-          checked={fie
-            lds.racism_experience}
-        /> */}
-        <body>
-          <div class="rate">
-            <input type="radio" id="star5" name="rate" value="5" />
-            <label for="star5" title="text">
-              5 stars
-            </label>
-            <input type="radio" id="star4" name="rate" value="4" />
-            <label for="star4" title="text">
-              4 stars
-            </label>
-            <input type="radio" id="star3" name="rate" value="3" />
-            <label for="star3" title="text">
-              3 stars
-            </label>
-            <input type="radio" id="star2" name="rate" value="2" />
-            <label for="star2" title="text">
-              2 stars
-            </label>
-            <input type="radio" id="star1" name="rate" value="1" />
-            <label for="star1" title="text">
-              1 star
-            </label>
-          </div>
-        </body>
+        <Ratings
+          name={"racism_experience"}
+          handleChange={handleChange}
+          value={fields.racism_experience}
+        />
       </div>
 
-      <div>
+      <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
         <label>As a person identifying as a woman</label>
-        {/* <input
-          type="radio"
-          onChange={handleChange}
-          name="womens_safety"
-          checked={fields.womens_safety}
-        /> */}
-        <body>
-          <div class="rate">
-            <input type="radio" id="star5" name="rate" value="5" />
-            <label for="star5" title="text">
-              5 stars
-            </label>
-            <input type="radio" id="star4" name="rate" value="4" />
-            <label for="star4" title="text">
-              4 stars
-            </label>
-            <input type="radio" id="star3" name="rate" value="3" />
-            <label for="star3" title="text">
-              3 stars
-            </label>
-            <input type="radio" id="star2" name="rate" value="2" />
-            <label for="star2" title="text">
-              2 stars
-            </label>
-            <input type="radio" id="star1" name="rate" value="1" />
-            <label for="star1" title="text">
-              1 star
-            </label>
-          </div>
-        </body>
+        <Ratings
+          name={"womens_safety"}
+          handleChange={handleChange}
+          value={fields.womens_safety}
+        />
       </div>
 
       <div>
@@ -149,6 +175,8 @@ const Form = () => {
           type="text"
           value={fields.description}
           placeholder="Comments"
+          rows="5"
+          cols="35"
         />
       </div>
 
