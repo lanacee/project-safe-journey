@@ -2,6 +2,12 @@ import Autocomplete from "react-google-autocomplete";
 import { useState } from "react";
 import "./Form.css";
 
+import {
+  GeoapifyGeocoderAutocomplete,
+  GeoapifyContext,
+} from "@geoapify/react-geocoder-autocomplete";
+import "@geoapify/geocoder-autocomplete/styles/minimal.css";
+
 const defaultValues = {
   country: "",
   racism_experience: "0",
