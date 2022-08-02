@@ -102,7 +102,7 @@ const Ratings = ({ name, handleChange, value }) => {
 const defaultValues = {
   country: "",
   racism_experience: "0",
-  lgbtqi_acceptence: "0",
+  lgbtqi_acceptance: "0",
   womens_safety: "0",
   description: "",
 };
@@ -114,7 +114,7 @@ const Form = () => {
   // We need to do this because Google onPlaceSelected uses inital fields values from setting function
   useEffect(() => {
     setFields({ ...fields, country: country });
-  }, [fields, country]);
+  }, [country]);
 
   const handleChange = (event) => {
     const { name, value, checked, type } = event.target;
@@ -129,14 +129,14 @@ const Form = () => {
     event.preventDefault();
     console.log(fields);
     // Connect to API fetch('/something', {method: "POST"})
-    fetch(`http://localhost:4000/`, {
-      method: "PUT",
+    fetch(`${process.env.REACT_APP_API_ENDPOINT}/reviews`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(),
+      body: JSON.stringify(fields),
     }).then((res) => {
-      return res.json();
+      // return res.json();
     });
   };
 
@@ -161,9 +161,9 @@ const Form = () => {
       <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
         <label>As a member of the LGBTQI+ community</label>
         <Ratings
-          name={"lgbtqi_acceptence"}
+          name={"lgbtqi_acceptance"}
           handleChange={handleChange}
-          value={fields.lgbtqi_acceptence}
+          value={fields.lgbtqi_acceptance}
         />
       </div>
 

@@ -19,6 +19,8 @@ function NavBar() {
             <Nav.Link href="/home">⌂ Home </Nav.Link>
             <Nav.Link href="/profile">♚ Profile</Nav.Link>
             <Nav.Link href="/support">☮ Support Services</Nav.Link>
+            <Link to={"/reviews/new"}>☮ New Review</Link>
+
             <Autocomplete
               //   apiKey={process.env.GOOGLE_API}
               apiKey={process.env.REACT_APP_GOOGLE_API}

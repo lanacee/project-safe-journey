@@ -14,13 +14,36 @@ import Register from "./components/Users/Register";
 
 const App = () => {
   const [authorised, setAuthorised] = useState(null);
-
   const navigate = useNavigate();
+  fetch(`${process.env.REACT_APP_API_ENDPOINT}/reviews`)
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+    });
 
   const handleAuth = (authed) => {
     setAuthorised(authed);
     navigate("/");
   };
+
+  const handleLogout = () => {
+    setAuthorised(null);
+    navigate("/");
+  };
+
+  useEffect(() => {
+    const checkIfLoggedIn = async () => {
+      const res = await fetch(
+        `${process.env.REACT_APP_API_ENDPOINT}/users/isauthorised`
+      );
+      const data = await res.json();
+      console.log(data.msg);
+      setAuthorised(data.authorised);
+    };
+    checkIfLoggedIn();
+  }, []);
 
   return (
     <div className="App">
@@ -32,7 +55,7 @@ const App = () => {
           path="/register"
           element={<Register handleRegister={handleAuth} />}
         />
-        <Route path="/suzy" element={<Form />} />
+        <Route path="/reviews/new" element={<Form />} />
       </Routes>
     </div>
   );
