@@ -3,9 +3,9 @@ import { useState } from "react";
 
 const defaultValues = {
   location: "",
-  racism_experience: false,
-  lgbtqi_acceptence: false,
-  womens_safety: false,
+  racism_experience: "",
+  lgbtqi_acceptence: "",
+  womens_safety: "",
   images: "",
   description: "",
   date: "",
@@ -29,7 +29,10 @@ const Form = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Location</label>
+        <h1>Submit a review</h1>
+        <p>What wereyour experience in the country?</p>
+      </div>
+      <div>
         <Autocomplete
           apiKey={process.env.REACT_APP_GOOGLE_API}
           onPlaceSelected={(place) => {
@@ -38,19 +41,13 @@ const Form = () => {
           placeholder="Search for a country"
         />
       </div>
-
-      <div>Did you encounter any of the following?</div>
       <div>
-        <label>Racism Experience</label>
-        <input
-          type="checkbox"
-          onChange={handleChange}
-          name="racism_experience"
-          checked={fields.racism_experience}
-        />
+        <label>Date</label>
+        <input type="date" onChange={handleChange} name="date" />
       </div>
+
       <div>
-        <label>LGBTQI+ acceptance</label>
+        <label>As a member of the LGBTQI+ community</label>
         <input
           type="checkbox"
           onChange={handleChange}
@@ -58,8 +55,19 @@ const Form = () => {
           checked={fields.lgbtqi_acceptence}
         />
       </div>
+
       <div>
-        <label>Womens Safety</label>
+        <label>As a person of colour</label>
+        <input
+          type="checkbox"
+          onChange={handleChange}
+          name="racism_experience"
+          checked={fields.racism_experience}
+        />
+      </div>
+
+      <div>
+        <label>As a person identifying as a woman</label>
         <input
           type="checkbox"
           onChange={handleChange}
@@ -69,23 +77,17 @@ const Form = () => {
       </div>
 
       <div>
-        <label>Image URL</label>
-        <input type="file" onChange={handleChange} name="imageUrl" />
-      </div>
-
-      <div>
-        <label>Description</label>
         <textarea
           name="description"
           onChange={handleChange}
           type="text"
           value={fields.description}
+          placeholder="Comments"
         />
       </div>
 
       <div>
-        <label>Date</label>
-        <input type="date" onChange={handleChange} name="date" />
+        <button>Submit</button>
       </div>
     </form>
   );
