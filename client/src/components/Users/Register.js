@@ -13,13 +13,17 @@ const Register = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await fetch("/users/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(fields),
-    });
+    const res = await fetch(
+      `${process.env.REACT_APP_API_ENDPOINT}/users/register`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fields),
+      }
+    );
     const data = await res.json();
     console.log(data);
+    props.handleRegister();
   };
 
   return (
