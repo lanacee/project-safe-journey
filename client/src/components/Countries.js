@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom'
+import "./Countries.css"
+
 const CountryCard = (props) => {
     return (
-        <div>
-            <img src="https://placeimg.com/600/400/arch" alt="random architecture" />
-            <h3>{props.country.name}</h3>
+        <div className="countries_item">
+            <img className="countries_img" src="https://placeimg.com/600/400/arch" alt="random architecture" />
+            <Link className="countries_link" to={"/"+props.country.name}><h3 className="countries_link">{props.country.name}</h3></Link>
         </div>
     )
 }
@@ -15,8 +18,11 @@ const Countries = (props) => {
         )
     })
     return (
-        <div>
+        <div >
+            <h1 className="all_countries">All Countries</h1>
+            <div className="countries_container">
             {countryItems}
+            </div>
         </div>
     )
 }

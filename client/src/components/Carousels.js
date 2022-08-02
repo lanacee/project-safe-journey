@@ -33,20 +33,6 @@ function Carousels() {
                 <Carousel.Item>
                     <img
                         className="d-block w-100 carouselImg"
-                        src="https://img.freepik.com/free-photo/waterfall-gullfoss-iceland-europe-surrounded-by-ice-snow_181624-29850.jpg?w=996&t=st=1659337163~exp=1659337763~hmac=0f6da4bb6035eccd16e733f09ae886356a96192f4a6b89061c9fa3190cdff694"
-                        alt="Antarctic Landscape"
-                    />
-
-                    <Carousel.Caption>
-                        <Link to="/:continent"><h3 className="continentTitle">Antarctica</h3></Link>
-                        <p className="continentDesc">
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                        </p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100 carouselImg"
                         src="https://img.freepik.com/free-photo/big-ben-westminster-bridge-sunset-london-uk_268835-1395.jpg?w=996&t=st=1659337242~exp=1659337842~hmac=ebc03ab4d8bf62f4f66c943e4fff1686d679aa6f89b9759565d84084d70d154b"
                         alt="Big Ben at sunset"
                     />
