@@ -12,6 +12,7 @@ const App = () => {
       <Search />
       <Carousels />
       <Quotes />
+      <Form />
       <hr />
       <footer className="footer">Contact Us: foobar@gmail.com</footer>
     </div>
