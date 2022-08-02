@@ -1,31 +1,15 @@
 import Autocomplete from "react-google-autocomplete";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Form.css";
-
-import {
-  GeoapifyGeocoderAutocomplete,
-  GeoapifyContext,
-} from "@geoapify/react-geocoder-autocomplete";
-import "@geoapify/geocoder-autocomplete/styles/minimal.css";
-
-const defaultValues = {
-  country: "",
-  racism_experience: "0",
-  lgbtqi_acceptence: "0",
-  womens_safety: "0",
-  description: "",
-};
 
 const Ratings = ({ name, handleChange, value }) => {
   return (
-    // <div style={{ display: "flex" }}>
-
     <div className="rating-group">
       <input
         onChange={handleChange}
         disabled
         checked={value === "0"}
-        class="rating__input rating__input--none"
+        className="rating__input rating__input--none"
         name={name}
         htmlFor={`rating-${name}-none`}
         value="0"
@@ -115,34 +99,56 @@ const Ratings = ({ name, handleChange, value }) => {
   );
 };
 
+const defaultValues = {
+  country: "",
+  racism_experience: "0",
+  lgbtqi_acceptence: "0",
+  womens_safety: "0",
+  description: "",
+};
+
 const Form = () => {
   const [fields, setFields] = useState(defaultValues);
+  const [country, setCountry] = useState(defaultValues.country);
+
+  // We need to do this because Google onPlaceSelected uses inital fields values from setting function
+  useEffect(() => {
+    setFields({ ...fields, country: country });
+  }, [country]);
 
   const handleChange = (event) => {
     const { name, value, checked, type } = event.target;
-    console.log(name, value, checked, type);
+    // console.log(name, value, checked, type);
     setFields({
       ...fields,
       [name]: type === "checkbox" ? checked : value,
     });
   };
-  console.log(fields);
+
+  const handlePlaceSelect = (place) => {
+    setFields({ ...fields, country: place.formatted_address });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(fields);
+    // Connect to API fetch('/something', {method: "POST"})
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <h1>Submit a review</h1>
         <p>What were your experience in the country?</p>
       </div>
+
       <div>
         <Autocomplete
           apiKey={process.env.REACT_APP_GOOGLE_API}
           onPlaceSelected={(place) => {
-            console.log(place.formatted_address);
+            setCountry(place.formatted_address);
           }}
+          style={{}}
           placeholder="Search for a country"
         />
       </div>

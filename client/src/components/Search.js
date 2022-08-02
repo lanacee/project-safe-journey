@@ -14,7 +14,6 @@ const Search = (props) => {
           <div>
             <label>Search</label>
             <Autocomplete
-              //   apiKey={process.env.GOOGLE_API}
               apiKey={process.env.REACT_APP_GOOGLE_API}
               onPlaceSelected={(place) => {
                 console.log(place.formatted_address);
