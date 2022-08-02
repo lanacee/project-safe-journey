@@ -114,7 +114,7 @@ const Form = () => {
   // We need to do this because Google onPlaceSelected uses inital fields values from setting function
   useEffect(() => {
     setFields({ ...fields, country: country });
-  }, [country]);
+  }, [fields, country]);
 
   const handleChange = (event) => {
     const { name, value, checked, type } = event.target;
@@ -125,14 +125,19 @@ const Form = () => {
     });
   };
 
-  const handlePlaceSelect = (place) => {
-    setFields({ ...fields, country: place.formatted_address });
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(fields);
     // Connect to API fetch('/something', {method: "POST"})
+    fetch(`http://localhost:4000/`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(),
+    }).then((res) => {
+      return res.json();
+    });
   };
 
   return (
