@@ -80,11 +80,12 @@
 .quote_container {
   display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 3fr;
+  margin-top: 40px;
 }
 
 .quote_title {
-  margin-top: 50px;
+  margin-top: 20px;
   text-align: center;
   grid-column: 2 / 3;
   grid-row: 1 / 2;

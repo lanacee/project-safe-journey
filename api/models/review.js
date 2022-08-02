@@ -2,15 +2,12 @@ const mongoose = require('mongoose')
 
 const reviewSchema = mongoose.Schema({
     user_id: { type: String, unique: true },
-    location: { type: String, required: true },
-    racism_experience: Boolean,
-    lgbtqi_acceptance: Boolean,
-    womens_safety: Boolean,
-    images: [String],
+    country: String,
+    racism_experience: { type: Number, min: 0, max: 5},
+    lgbtqi_acceptance: { type: Number, min: 0, max: 5},
+    womens_safety: { type: Number, min: 0, max: 5},
     description: String,
-    date: Date
-},
-    { timestamps: true }
+}
 )
 
 const Review = mongoose.model('Review', reviewSchema)
