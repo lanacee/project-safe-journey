@@ -109,3 +109,10 @@
   max-width: 50px;
   border-radius: 30px;
 }
+
+.footer {
+  height: 30px;
+  text-align: right;
+  margin-top: 50px;
+  font-size: 12px;
+}

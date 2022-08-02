@@ -12,6 +12,8 @@ const App = () => {
       <Search />
       <Carousels />
       <Quotes />
+      <hr />
+      <footer className="footer">Contact Us: foobar@gmail.com</footer>
     </div>
   );
 };
