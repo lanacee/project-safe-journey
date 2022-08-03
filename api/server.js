@@ -33,18 +33,6 @@ app.use(
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(
-  cors({
-    origin: (origin, cb) => {
-      if (whitelist.indexOf(origin) !== -1) {
-        cb(null, true);
-      } else {
-        cb(new Error());
-      }
-      console.log(origin);
-    },
-  })
-);
 
 // add our Controller
 app.use("/reviews", reviewsRouter);

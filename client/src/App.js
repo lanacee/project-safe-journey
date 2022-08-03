@@ -12,6 +12,8 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Register from "./components/Users/Register";
 
+import countries from "./data/countries-data.json";
+
 const App = () => {
   const [authorised, setAuthorised] = useState(null);
   const navigate = useNavigate();
@@ -55,7 +57,7 @@ const App = () => {
           path="/register"
           element={<Register handleRegister={handleAuth} />}
         />
-        <Route path="/reviews/new" element={<Form />} />
+        <Route path="/reviews/new" element={<Form countries={countries} />} />
       </Routes>
     </div>
   );

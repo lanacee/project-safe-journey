@@ -107,7 +107,8 @@ const defaultValues = {
   description: "",
 };
 
-const Form = () => {
+const Form = ({ countries }) => {
+  console.log(countries[0]);
   const [fields, setFields] = useState(defaultValues);
   const [country, setCountry] = useState(defaultValues.country);
 
@@ -148,6 +149,11 @@ const Form = () => {
       </div>
 
       <div>
+        <select onChange={handleChange}>
+          {countries.map((country) => (
+            <option>{country.name}</option>
+          ))}
+        </select>
         <Autocomplete
           apiKey={process.env.REACT_APP_GOOGLE_API}
           onPlaceSelected={(place) => {
@@ -155,6 +161,7 @@ const Form = () => {
           }}
           style={{}}
           placeholder="Search for a country"
+          options={{ types: ["countries"] }}
         />
       </div>
 
