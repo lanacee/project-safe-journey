@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom'
 import "./Countries.css"
 
 const CountryCard = (props) => {
+    const randomInteger = Math.floor(Math.random() * 600)
+
     return (
         <div className="countries_item">
-            <img className="countries_img" src="https://placeimg.com/600/400/arch" alt="random architecture" />
+            <img className="countries_img" src={"https://placeimg.com/"+randomInteger+"/"+randomInteger+"/arch"} alt="random architecture" />
             <Link className="countries_link" to={"/"+props.country.name}><h3 className="countries_link">{props.country.name}</h3></Link>
         </div>
     )

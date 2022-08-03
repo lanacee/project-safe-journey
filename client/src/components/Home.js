@@ -8,7 +8,6 @@ import Quotes from "./Quotes"
 const Home = (props) => {
     return (
         <div>
-            <NavBar />
             <Search />
             <Carousels />
             <Quotes />
