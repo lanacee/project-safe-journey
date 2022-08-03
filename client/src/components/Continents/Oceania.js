@@ -1,5 +1,6 @@
 import oceData from "../../data/oceania-data.json"
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
+import "./Continents.css"
 
 const OceList = (props) => {
     const randomInteger = Math.floor(Math.random() * 600)
@@ -21,7 +22,7 @@ const Oceania = () => {
     return (
         <div className="all_continents">
             <h1>Oceania</h1>
-            <div className="countries_container">
+            <div className="continent_container">
                 {oceList}
             </div>
         </div>

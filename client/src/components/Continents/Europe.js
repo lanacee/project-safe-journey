@@ -1,5 +1,6 @@
 import euroData from "../../data/europe-data.json"
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
+import "./Continents.css"
 
 const EuroList = (props) => {
     const randomInteger = Math.floor(Math.random() * 600)
@@ -21,7 +22,7 @@ const Europe = () => {
     return (
         <div className="all_continents">
             <h1>Europe</h1>
-            <div className="countries_container">
+            <div className="continent_container">
                 {euroList}
             </div>
         </div>

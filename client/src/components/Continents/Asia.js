@@ -1,5 +1,6 @@
 import asiaData from "../../data/asia-data.json"
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
+import "./Continents.css"
 
 const AsiaList = (props) => {
     const randomInteger = Math.floor(Math.random() * 600)
@@ -21,7 +22,7 @@ const Asia = () => {
     return (
         <div className="all_continents">
             <h1>Asia</h1>
-            <div className="countries_container">
+            <div className="continent_container">
                 {asiaList}
             </div>
         </div>

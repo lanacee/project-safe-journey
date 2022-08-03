@@ -1,5 +1,6 @@
 import naData from "../../data/north-america-data.json"
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
+import "./Continents.css"
 
 const NaList = (props) => {
     const randomInteger = Math.floor(Math.random() * 600)
@@ -21,7 +22,7 @@ const NAmerica = () => {
     return (
         <div className="all_continents">
             <h1>North America</h1>
-            <div className="countries_container">
+            <div className="continent_container">
                 {naList}
             </div>
         </div>
