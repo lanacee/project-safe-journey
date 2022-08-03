@@ -7,6 +7,7 @@ import countries from "./data/countries-data.json";
 
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
+import About from "./components/About"
 import Login from "./components/Users/Login";
 import Logout from "./components/Users/Logout";
 import Register from "./components/Users/Register";
@@ -61,6 +62,7 @@ const App = () => {
       <NavBar authorised={authorised} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/countries" element={<Countries data={countryData} />} />
         <Route path="/support" element={<Services />} />
         <Route path="/reviews/new" element={

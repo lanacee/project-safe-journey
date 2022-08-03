@@ -16,7 +16,8 @@ function NavBar(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">⌂ Home </Nav.Link>
+            <Nav.Link href="/">⌂ Home</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/countries">☀ All Countries</Nav.Link>
             <Nav.Link href="/support">☮ Support Services</Nav.Link>
             {props.authorised && <Nav.Link href="/my-reviews">♚ My Reviews</Nav.Link>}

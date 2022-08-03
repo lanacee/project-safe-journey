@@ -1,6 +1,6 @@
 # Safe Journey
 
-Safe Journey was created for people who may encounter discrimination or harassment when travelling, such as members of the LGBTQIA+ community, people of colour and women. The app allows users to report their experiences when travelling in other countries. Users can rate a country out of 5 for and provide detailed information about their experiences. Sharing this information allows others to be prepared and to make well-informed decisions about where and how they travel.
+Travel can be amazing and life-changing, but for some people, like members of the LGBTQIA+ community, people of colour and women, it can also mean discrimination and harassment. Safe Journey was created so users can share and report their travel experiences. Users can give a country a rating out of 5 and a detailed review. Sharing this information allows others to be prepared and to make well-informed decisions about where and how they travel.
 
 [View the app here](#)
 
