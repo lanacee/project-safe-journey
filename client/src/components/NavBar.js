@@ -9,14 +9,14 @@ function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Link to="/home">
+        <Link to="/">
           <h1>✈</h1>
         </Link>
-        <Navbar.Brand href="#home">Safe Journey</Navbar.Brand>
+        <Navbar.Brand href="/">Safe Journey</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/home">⌂ Home </Nav.Link>
+            <Nav.Link href="/">⌂ Home </Nav.Link>
             <Nav.Link href="/profile">♚ Profile</Nav.Link>
             <Nav.Link href="/support">☮ Support Services</Nav.Link>
             <Nav.Link href="/countries">☀ All Countries</Nav.Link>
