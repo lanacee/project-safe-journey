@@ -4,11 +4,13 @@ import Countries from "./components/Countries";
 import Home from "./components/Home";
 import Form from "./components/Form";
 import Login from "./components/Users/Login";
+import Logout from "./components/Users/Logout";
 import countryData from "./data/countries-data.json";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Register from "./components/Users/Register";
 import Services from "./components/Services";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import countries from "./data/countries-data.json";
 import Africa from "./components/Continents/Africa"
@@ -53,16 +55,21 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar authorised={authorised} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/countries" element={<Countries data={countryData} />} />
         <Route path="/login" element={<Login handleLogin={handleAuth} />} />
+        <Route path="logout" element={<Logout handleLogout={handleLogout} />} />
         <Route
           path="/register"
           element={<Register handleRegister={handleAuth} />}
         />
-        <Route path="/reviews/new" element={<Form countries={countries} />} />
+        <Route path="/reviews/new" element={
+          <ProtectedRoute authorised={authorised}>
+            <Form countries={countries} />
+          </ProtectedRoute>
+        } />
         <Route path="/support" element={<Services />} />
         <Route path="/Africa" element={<Africa />} />
         <Route path="/Asia" element={<Asia />} />

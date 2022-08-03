@@ -134,3 +134,9 @@
 .service {
   text-align: left;
 }
+
+.logout_button {
+  width: 90px;
+  margin: 0 auto;
+  margin-right: 308px;
+}
