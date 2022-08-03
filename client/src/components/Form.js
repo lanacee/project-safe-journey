@@ -111,6 +111,7 @@ const Form = ({ countries }) => {
   console.log(countries[0]);
   const [fields, setFields] = useState(defaultValues);
   const [country, setCountry] = useState(defaultValues.country);
+  const [searchTerm, setSearchTerm] = useState("")
 
   // We need to do this because Google onPlaceSelected uses inital fields values from setting function
   useEffect(() => {
@@ -149,20 +150,31 @@ const Form = ({ countries }) => {
       </div>
 
       <div>
-        <select onChange={handleChange}>
-          {countries.map((country) => (
-            <option>{country.name}</option>
-          ))}
-        </select>
-        <Autocomplete
-          apiKey={process.env.REACT_APP_GOOGLE_API}
-          onPlaceSelected={(place) => {
-            setCountry(place.formatted_address);
+        <input
+          type="text"
+          placeholder="Search Country"
+          onChange={(event) => {
+            setSearchTerm(event.target.value)
           }}
-          style={{}}
-          placeholder="Search for a country"
-          options={{ types: ["countries"] }}
         />
+
+        {countries.filter((country) => {
+          if (searchTerm === "") {
+            return country
+          } else if (country.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return country
+          }
+        }).map((country) => {
+          return (
+            <div>
+              <select onChange={handleChange}>               
+                  <option>{country.name}</option>
+              </select>
+            </div>
+          )
+        })}
+        
+
       </div>
 
       <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
