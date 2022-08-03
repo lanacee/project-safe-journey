@@ -16,6 +16,7 @@ const Review = require("../models/review.js");
 // index
 reviewsRouter.get("/", async (req, res) => {
   const reviews = await Review.find({}).exec();
+  console.log(reviews);
   res.status(200).json(reviews);
 });
 
