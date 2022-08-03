@@ -47,7 +47,9 @@ userRouter.post("/login", async (req, res) => {
       msg: "Username or password is incorrect",
     });
   } else {
+    console.log('logged in succesfully');
     req.session.currentUser = user;
+    console.log(req.session.currentUser);
     res.status(200).json({
       msg: "You have logged in successfully",
       authorised: true,
@@ -65,6 +67,8 @@ userRouter.post("/logout", async (req, res) => {
 });
 
 userRouter.get("/isauthorised", async (req, res) => {
+  console.log('is authorised route');
+  console.log(req.session.currentUser);
   if (req.session.currentUser) {
     return res.status(200).json({
       msg: "User is logged in",
