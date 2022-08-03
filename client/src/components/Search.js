@@ -4,8 +4,7 @@ const Search = (props) => {
   return (
     <div className="container">
       <div className="header">
-        <h1>Safe Journey</h1>
-        <h2>To feel safe when you are out and about exploring</h2>
+        <h3>To feel safe when you are out and about exploring</h3>
         <p>
           "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
           consectetur, adipisci velit..."
