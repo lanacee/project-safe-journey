@@ -56,7 +56,7 @@ We used Figma to create a detailed mockup of the app.
 
 ## Achievements
 
-We were inspired to create an app that could benefit people who are more likely to experience discrimination when travelling. We kept theses users front of mind when designing and creating the app. For example we were aware that revisiting their negative travel experiences could be difficult or upsetting for some users, so we provided support service resources.
+We were inspired to create an app that could benefit people who are more likely to experience discrimination when travelling. We kept these users front of mind when designing and creating the app. For example we were aware that revisiting their negative travel experiences could be difficult or upsetting for some users, so we provided support service resources.
 
 Throughout this project, which was completed over a 4-day sprint, we took on the combined roles of project managers, UX/UI designers and front-end and back-end developers. We improved our knowledge of important tools like Trello, Figma and GitHub.
 

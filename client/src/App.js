@@ -1,5 +1,5 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import "./App.css";
 import countryData from "./data/countries-data.json";
@@ -13,7 +13,8 @@ import Logout from "./components/Users/Logout";
 import Register from "./components/Users/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Form from "./components/Form";
-import ReviewsTable from "./components/ReviewsTable";
+import CountryReviews from "./components/CountryReviews";
+import CountryReviewDetail from "./components/CountryReviewDetail"
 import Countries from "./components/Countries";
 import Services from "./components/Services";
 
@@ -57,6 +58,33 @@ const App = () => {
     checkIfLoggedIn();
   }, []);
 
+  const [reviews, setReviews] = useState(null)
+
+  const getReviews = async () => {
+    const url = 'http://localhost:4000/reviews'
+    const res = await fetch(url)
+    const data = await res.json()
+    setReviews(data)
+  }
+
+  useEffect(() => {
+    getReviews()
+  }, [])
+
+  const handleCreate = (name) => {
+    console.log('App.js create review with name:', name)
+  }
+
+  const handleDelete = async (reviewID) => {
+    await fetch(`http://localhost:4000/countries/${reviewID}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    setReviews(reviews.filter((rv) => rv._id !== reviewID))
+  }
+
   return (
     <div className="App">
       <NavBar authorised={authorised} handleLogout={handleLogout} />
@@ -70,6 +98,15 @@ const App = () => {
             <Form countries={countries} />
           </ProtectedRoute>
         } />
+        <Route
+          path="/"
+          element={reviews && <CountryReviews
+            reviews={reviews}
+            handleCreate={handleCreate}
+            handleDelete={handleDelete}
+          />}
+        />
+        <Route path="/:reviewID" element={reviews && <CountryReviewDetail reviews={reviews} />} />
         <Route
           path="/register"
           element={<Register handleRegister={handleAuth} />}

@@ -146,7 +146,7 @@ const Form = ({ countries }) => {
     <form onSubmit={handleSubmit}>
       <div>
         <h1>Submit a review</h1>
-        <p>What were your experience in the country?</p>
+        <p>What was your experience of travelling in this country?</p>
       </div>
 
       <div>
@@ -178,7 +178,7 @@ const Form = ({ countries }) => {
       </div>
 
       <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
-        <label>As a member of the LGBTQI+ community</label>
+        <label>As a member of the LGBTQIA+ community</label>
         <Ratings
           name={"lgbtqi_acceptance"}
           handleChange={handleChange}
@@ -196,7 +196,7 @@ const Form = ({ countries }) => {
       </div>
 
       <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
-        <label>As a person identifying as a woman</label>
+        <label>As a woman</label>
         <Ratings
           name={"womens_safety"}
           handleChange={handleChange}
