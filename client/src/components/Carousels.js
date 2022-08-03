@@ -14,7 +14,7 @@ function Carousels() {
                         alt="Giraffes in the wild"
                     />
                     <Carousel.Caption>
-                        <Link to="/Africa"><h3 className="continentTitle">Africa</h3></Link>
+                        <Link className="continentTitle" to="/Africa"><h3 className="continentTitle">Africa</h3></Link>
                         <p className="continentDesc">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -26,7 +26,7 @@ function Carousels() {
                     />
 
                     <Carousel.Caption>
-                        <Link to="/Asia"><h3 className="continentTitle">Asia</h3></Link>
+                        <Link className="continentTitle" to="/Asia"><h3 className="continentTitle">Asia</h3></Link>
                         <p className="continentDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -38,7 +38,7 @@ function Carousels() {
                     />
 
                     <Carousel.Caption>
-                        <Link to="/Europe"><h3 className="continentTitle">Europe</h3></Link>
+                        <Link className="continentTitle" to="/Europe"><h3 className="continentTitle">Europe</h3></Link>
                         <p className="continentDesc">
                             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
                         </p>
@@ -52,7 +52,7 @@ function Carousels() {
                     />
 
                     <Carousel.Caption>
-                        <Link to="/North-America"><h3 className="continentTitle">North America</h3></Link>
+                        <Link className="continentTitle" to="/North-America"><h3 className="continentTitle">North America</h3></Link>
                         <p className="continentDesc">
                             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
                         </p>
@@ -66,7 +66,7 @@ function Carousels() {
                     />
 
                     <Carousel.Caption>
-                        <Link to="/Oceania"><h3 className="continentTitle">Oceania</h3></Link>
+                        <Link className="continentTitle" to="/Oceania"><h3 className="continentTitle">Oceania</h3></Link>
                         <p className="continentDesc">
                             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
                         </p>
@@ -80,7 +80,7 @@ function Carousels() {
                     />
 
                     <Carousel.Caption>
-                        <Link to="/South-America"><h3 className="continentTitle">South America</h3></Link>
+                        <Link className="continentTitle" to="/South-America"><h3 className="continentTitle">South America</h3></Link>
                         <p className="continentDesc">
                             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
                         </p>
