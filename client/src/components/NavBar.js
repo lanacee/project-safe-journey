@@ -20,8 +20,8 @@ function NavBar() {
             <Nav.Link href="/profile">♚ Profile</Nav.Link>
             <Nav.Link href="/support">☮ Support Services</Nav.Link>
             <Nav.Link href="/countries">☀ All Countries</Nav.Link>
-            <Link to={"/reviews/new"}>✎ New Review</Link>
-
+            <Nav.Link href="/reviews/new">✎ New Review</Nav.Link>
+            <br />
             <Autocomplete
               //   apiKey={process.env.GOOGLE_API}
               apiKey={process.env.REACT_APP_GOOGLE_API}
@@ -30,6 +30,7 @@ function NavBar() {
               }}
               placeholder="Search for a country"
             />
+            <br />
             <Link to="/register">
               {" "}
               <Button className="register" variant="secondary">
