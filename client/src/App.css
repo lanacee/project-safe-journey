@@ -118,3 +118,19 @@
   font-size: 12px;
 }
 
+.serviceImg {
+  display: block;
+  max-width: 50%;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+.service_title {
+  margin-left: 10px;
+  width: 80%;
+  text-align: left;
+}
+
+.service {
+  text-align: left;
+}
