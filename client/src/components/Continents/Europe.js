@@ -3,7 +3,9 @@ import { Link } from "react-router-dom"
 import "./Continents.css"
 
 const EuroList = (props) => {
-    const randomInteger = Math.floor(Math.random() * 600)
+    let min = Math.ceil(400)
+    let max = Math.floor(600)
+    const randomInteger = Math.floor(Math.random() * (max - min) + min)
     return (
         <div className="continent_item">
             <img className="continent_img" src={"https://placeimg.com/" + randomInteger + "/" + randomInteger + "/nature"} alt="random nature" />
