@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom'
 import "./Countries.css"
 
 const CountryCard = (props) => {
-    const randomInteger = Math.floor(Math.random() * 600)
+    let min = Math.ceil(400)
+    let max = Math.floor(600)
+    const randomInteger = Math.floor(Math.random() * (max - min) + min)
 
     return (
         <div className="countries_item">
