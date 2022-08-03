@@ -1,30 +1,14 @@
 # Safe Journey
 
-Safe Journey was created for people who may encounter discrimination or harassment when travelling, such as women, people of colour and members of the LGBTQI+ community. The app allows users to report both their positive and negative experiences in other countries. Users can rate a location out of 5 stars and provide detailed information about their experiences. Sharing this information allows others to make well-informed decisions about their travel plans.
+Safe Journey was created for people who may encounter discrimination or harassment when travelling, such as members of the LGBTQIA+ community, people of colour and women. The app allows users to report their experiences when travelling in other countries. Users can rate a country out of 5 for and provide detailed information about their experiences. Sharing this information allows others to be prepared and to make well-informed decisions about where and how they travel.
 
 [View the app here](#)
 
 Sample account:
 ```
-Username: test
-Password: test
+Username: demo
+Password: demo
 ```
-## Technologies used
-
-Safe Journey was built over a 4-day sprint and is a full-stack responsive application using the MERN stack of MongoDB, Express, Node.js and React. 
-
-- Javascript
-- HTML
-- CSS
-- Bootstrap
-- Node.Js
-- Express
-- React
-- MongoDB
-- Google Maps API
-- Heroku
-- Figma
-- Trello
 
 ## Features
 
@@ -39,3 +23,47 @@ Safe Journey was built over a 4-day sprint and is a full-stack responsive applic
 - Checks if user is logged in before allowing a user to add, edit or delete their own reviews
 
 - Links to support services for users
+
+## Technologies used
+
+Safe Journey is a full-stack responsive application using the MERN stack of MongoDB, Express, Node.js and React. 
+
+- Javascript
+- HTML
+- CSS
+- Bootstrap
+- Node.Js
+- Express
+- React
+- MongoDB
+- Google Maps API
+- Heroku
+- GitHub
+- Figma
+- Trello
+
+## Our approach
+
+Our approach was influenced by agile methodologies. We used Trello (Kanban board) to track tasks (to do/doing/done) and prepared a user story:
+
+> **As a** person who is more likely to face discrimination or harassment when travelling, 
+**I want to** hear from other people who are like me their experiences travelling in different countries 
+**so that** I can be prepared and make decisions and plan where and how I travel.
+
+We used Figma to create a detailed mockup of the app.
+
+[Photo to come](#)
+
+## Achievements
+
+We were inspired to create an app that could benefit people who are more likely to experience discrimination when travelling. We kept theses users front of mind when designing and creating the app. For example we were aware that revisiting their negative travel experiences could be difficult or upsetting for some users, so we provided support service resources.
+
+Throughout this project, which was completed over a 4-day sprint, we took on the combined roles of project managers, UX/UI designers and front-end and back-end developers. We improved our knowledge of important tools like Trello, Figma and GitHub.
+
+We took advantage of the differing strengths of our team members and worked effectively as a team to successfully deliver Safe Journey. 
+
+## Contributors
+
+[Lani](https://github.com/lani-c) <br/>
+[Kevin](https://github.com/Keojac) <br/>
+[Susanna](https://github.com/Suzyyc) <br/>

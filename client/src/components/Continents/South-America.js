@@ -1,6 +1,7 @@
 import saData from "../../data/south-america.json"
 import { Link } from "react-router-dom"
 import "./Continents.css"
+import Autocomplete from "react-google-autocomplete";
 
 const SaList = (props) => {
     let min = Math.ceil(400)
@@ -24,6 +25,16 @@ const SAmerica = () => {
     return (
         <div className="all_continents">
             <h1>South America</h1>
+            <p>Andean peaks, Amazonian rainforest, Patagonian glaciers, Incan ruins, white-sand beaches and vertiginous nightlife: the wonders of South America set the stage for incredible adventures.</p>
+            <div>
+            <Autocomplete
+              apiKey={process.env.REACT_APP_GOOGLE_API}
+              onPlaceSelected={(place) => {
+                console.log(place.formatted_address);
+              }}
+              placeholder="Search for a country"
+            />
+            </div>
             <div className="continent_container">
                 {saList}
             </div>

@@ -3,7 +3,6 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import Autocomplete from "react-google-autocomplete";
 import Logout from "./Users/Logout";
 
 function NavBar(props) {
@@ -18,19 +17,10 @@ function NavBar(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">⌂ Home </Nav.Link>
-            {props.authorised && <Nav.Link href="/profile">♚ Profile</Nav.Link>}
-            <Nav.Link href="/support">☮ Support Services</Nav.Link>
             <Nav.Link href="/countries">☀ All Countries</Nav.Link>
+            <Nav.Link href="/support">☮ Support Services</Nav.Link>
+            {props.authorised && <Nav.Link href="/my-reviews">♚ My Reviews</Nav.Link>}
             {props.authorised && <Nav.Link href="/reviews/new">✎ New Review</Nav.Link>}
-            <br />
-            <Autocomplete
-              //   apiKey={process.env.GOOGLE_API}
-              apiKey={process.env.REACT_APP_GOOGLE_API}
-              onPlaceSelected={(place) => {
-                console.log(place);
-              }}
-              placeholder="Search for a country"
-            />
             <br />
             <Link to="/register">
               {" "}

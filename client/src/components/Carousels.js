@@ -70,7 +70,7 @@ function Carousels() {
                     <Carousel.Caption>
                         <Link className="continentTitle" to="/Oceania"><h3 className="continentTitle">Oceania</h3></Link>
                         <p className="continentDesc">
-                        "Australia and New Zealand’s medley of mountains, deserts, reefs, forests, beaches and multicultural cities are an eternal draw for travellers. Remote, beautiful and friendly, the Pacific islands’ white sands and clear waters are almost dreamlike in their perfection."
+                        Australia and New Zealand’s medley of mountains, deserts, reefs, forests, beaches and multicultural cities are an eternal draw for travellers. Remote, beautiful and friendly, the Pacific islands’ white sands and clear waters are almost dreamlike in their perfection.
                         </p>
                     </Carousel.Caption>
                 </Carousel.Item>

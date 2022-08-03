@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import "./Countries.css"
+import Autocomplete from "react-google-autocomplete";
 
 const CountryCard = (props) => {
     let min = Math.ceil(400)
@@ -24,6 +25,15 @@ const Countries = (props) => {
     return (
         <div >
             <h1 className="all_countries">All Countries</h1>
+            <div>
+            <Autocomplete
+              apiKey={process.env.REACT_APP_GOOGLE_API}
+              onPlaceSelected={(place) => {
+                console.log(place.formatted_address);
+              }}
+              placeholder="Search for a country"
+            />
+            </div>
             <div className="countries_container">
             {countryItems}
             </div>
