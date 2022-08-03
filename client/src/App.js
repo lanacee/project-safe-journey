@@ -8,6 +8,7 @@ import countryData from "./data/countries-data.json";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Register from "./components/Users/Register";
+import Services from "./components/Services";
 
 import countries from "./data/countries-data.json";
 import Africa from "./components/Continents/Africa"
@@ -62,6 +63,7 @@ const App = () => {
           element={<Register handleRegister={handleAuth} />}
         />
         <Route path="/reviews/new" element={<Form countries={countries} />} />
+        <Route path="/support" element={<Services />} />
         <Route path="/Africa" element={<Africa />} />
         <Route path="/Asia" element={<Asia />} />
         <Route path="/Europe" element={<Europe />} />
