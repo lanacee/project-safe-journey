@@ -10,6 +10,12 @@ import { useState, useEffect } from "react";
 import Register from "./components/Users/Register";
 
 import countries from "./data/countries-data.json";
+import Africa from "./components/Continents/Africa"
+import Asia from "./components/Continents/Asia"
+import Europe from "./components/Continents/Europe"
+import NAmerica from "./components/Continents/North-America"
+import Oceania from "./components/Continents/Oceania"
+import SAmerica from "./components/Continents/South-America"
 
 const App = () => {
   const [authorised, setAuthorised] = useState(null);
@@ -56,6 +62,12 @@ const App = () => {
           element={<Register handleRegister={handleAuth} />}
         />
         <Route path="/reviews/new" element={<Form countries={countries} />} />
+        <Route path="/Africa" element={<Africa />} />
+        <Route path="/Asia" element={<Asia />} />
+        <Route path="/Europe" element={<Europe />} />
+        <Route path="/North-America" element={<NAmerica />} />
+        <Route path="/Oceania" element={<Oceania />} />
+        <Route path="/South-America" element={<SAmerica />} />
       </Routes>
     </div>
   );
