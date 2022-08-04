@@ -1,6 +1,8 @@
-import Autocomplete from "react-google-autocomplete";
 import { useEffect, useState } from "react";
 import "./Form.css";
+import countries from "../data/countries-data.json";
+import Select from "react-select";
+import { useNavigate } from "react-router-dom";
 
 const Ratings = ({ name, handleChange, value }) => {
   return (
@@ -107,7 +109,12 @@ const defaultValues = {
   description: "",
 };
 
-const Form = ({ countries, user }) => {
+const options = countries.map((country) => {
+  return { label: country.name, value: country.name };
+});
+
+const Form = ({ user, createReview }) => {
+  const navigate = useNavigate();
   console.log(user);
   const [fields, setFields] = useState(defaultValues);
   const [country, setCountry] = useState(defaultValues.country);
@@ -120,7 +127,7 @@ const Form = ({ countries, user }) => {
 
   const handleChange = (event) => {
     const { name, value, checked, type } = event.target;
-    // console.log(name, value, checked, type);
+    console.log(name, value, checked, type);
     setSearchTerm(event.target.value);
     setFields({
       ...fields,
@@ -128,18 +135,17 @@ const Form = ({ countries, user }) => {
     });
   };
 
+  const handleSelect = (value) => {
+    console.log(value);
+    setFields({
+      ...fields,
+      country: value.value,
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Connect to API fetch('/something', {method: "POST"})
-    fetch(`/reviews`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...fields, user_id: user.id }),
-    }).then((res) => {
-      // return res.json();
-    });
+    createReview(fields);
   };
 
   return (
@@ -148,6 +154,7 @@ const Form = ({ countries, user }) => {
         <h1>Submit a review</h1>
         <p>What was your experience of travelling in this country?</p>
       </div>
+
 
       <div>
         <input
@@ -179,6 +186,7 @@ const Form = ({ countries, user }) => {
           })}
       </div>
 
+
       <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
         <label>As a member of the LGBTQIA+ community</label>
         <Ratings
@@ -206,7 +214,7 @@ const Form = ({ countries, user }) => {
         />
       </div>
 
-      <div>
+      <div className="d-flex justify-content-center">
         <textarea
           name="description"
           onChange={handleChange}
@@ -218,7 +226,7 @@ const Form = ({ countries, user }) => {
         />
       </div>
 
-      <div>
+      <div className="d-flex justify-content-center">
         <button>Submit</button>
       </div>
     </form>

@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import "./Countries.css"
@@ -15,9 +16,28 @@ const CountryCard = (props) => {
         </div>
     )
 }
-
+  return (
+    <div className="countries_item">
+      <img
+        className="countries_img"
+        src={
+          "https://placeimg.com/" +
+          randomInteger +
+          "/" +
+          randomInteger +
+          "/arch"
+        }
+        alt="random architecture"
+      />
+      <Link className="countries_link" to={"/countries/" + props.country.name}>
+        <h3 className="countries_link">{props.country.name}</h3>
+      </Link>
+    </div>
+  );
+};
 
 const Countries = (props) => {
+
     const [searchTerm, setSearchTerm] = useState("");
 
     const handleChange = (event) => {
@@ -50,4 +70,5 @@ const Countries = (props) => {
     )
 }
 
-export default Countries
+
+export default Countries;
