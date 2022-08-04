@@ -17,6 +17,7 @@ import UserReviews from "./components/UserReviews";
 import CountryReviewDetail from "./components/CountryReviewDetail"
 import Countries from "./components/Countries";
 import Services from "./components/Services";
+import Edit from "./components/Edit";
 
 import Africa from "./components/Continents/Africa"
 import Asia from "./components/Continents/Asia"
@@ -71,13 +72,28 @@ const App = () => {
 
 
   const handleDelete = async (reviewID) => {
-    await fetch(`/my-reviews`, {
+    await fetch(`/reviews/my-reviews`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      body: JSON.stringify({_id: reviewID})
     })
     setReviews(reviews.filter((rv) => rv._id !== reviewID))
+  }
+
+  const handleEdit = async (edit, index) => {
+    console.log(edit);
+    const res = await fetch(`/reviews/my-reviews/edit/${edit._id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(edit)
+    })
+    const editedReviews = await res.json()
+    setReviews([...reviews.slice(0, index), 
+    editedReviews, ...reviews.slice(index + 1)] )
   }
 
   return (
@@ -96,7 +112,7 @@ const App = () => {
         <Route
 
           path="/my-reviews"
-          element={user && <UserReviews
+          element={user && reviews && <UserReviews
 
             reviews={reviews}
             user={user}
@@ -104,7 +120,7 @@ const App = () => {
             handleDelete={handleDelete}
           />}
         />
-
+        <Route path="/my-reviews/edit/:reviewID" element={reviews && <Edit reviews={reviews} handleEdit={handleEdit} />} />
         <Route path="/countries/:countryname" element={reviews && <CountryReviewDetail reviews={reviews} />} />
 
         <Route
