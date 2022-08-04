@@ -20,7 +20,7 @@ function NavBar(props) {
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/countries">☀ All Countries</Nav.Link>
             <Nav.Link href="/support">☮ Support Services</Nav.Link>
-            {props.authorised && <Link to="/my-reviews">♚ My Reviews</Link>}
+            {props.authorised && <Link className="nav_review" to="/my-reviews">♚ My Reviews</Link>}
             {props.authorised && <Nav.Link href="/reviews/new">✎ New Review</Nav.Link>}
             <br />
             <Link to="/register">
