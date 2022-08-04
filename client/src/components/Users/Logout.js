@@ -1,5 +1,4 @@
 import Button from "react-bootstrap/Button";
-import "./Logout.css";
 
 const Logout = (props) => {
   const handleClick = async () => {

@@ -203,7 +203,7 @@ const Form = ({ user, createReview }) => {
         />
       </div>
 
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center mt-2">
         <button>Submit</button>
       </div>
     </form>
