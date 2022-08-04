@@ -154,9 +154,6 @@ const Form = ({ countries, user }) => {
           name="country"
           type="text"
           placeholder="Search Country"
-          // onChange={(event) => {
-          //   setSearchTerm(event.target.value)
-          // }}
           onChange={handleChange}
           value={fields.country}
         />
