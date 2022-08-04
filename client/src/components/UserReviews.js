@@ -9,9 +9,11 @@ const ReviewRow = (props) => {
     return (
       <tr>
         <td>
-          <Link to={review._id}>{review.description}</Link>
+          <Link to={"/countries/"+review.country}>{review.description}</Link>
         </td>
+        <td>{review.racism_experience}</td>
         <td>{review.lgbtqi_acceptance}</td>
+        <td>{review.womens_safety}</td>
         <td>
           <button onClick={handleClick}>Delete</button>
         </td>
@@ -65,6 +67,8 @@ const ReviewRow = (props) => {
           <thead>
             <tr>
               <th>Detail</th>
+              <th>Experience of Racism</th>
+              <th>Experience as a Woman</th>
               <th>LGBTQIA+ Acceptance</th>
               <th>Delete</th>
             </tr>
