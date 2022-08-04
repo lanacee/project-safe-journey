@@ -28,13 +28,6 @@ import SAmerica from "./components/Continents/South-America"
 const App = () => {
   const [authorised, setAuthorised] = useState(null);
   const navigate = useNavigate();
-  fetch(`${process.env.REACT_APP_API_ENDPOINT}/reviews`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data);
-    });
 
   const handleAuth = (authed) => {
     setAuthorised(authed);
@@ -48,9 +41,7 @@ const App = () => {
 
   useEffect(() => {
     const checkIfLoggedIn = async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_API_ENDPOINT}/users/isauthorised`
-      );
+      const res = await fetch(`/users/isauthorised`);
       const data = await res.json();
       console.log(data.msg);
       setAuthorised(data.authorised);
