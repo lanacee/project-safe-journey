@@ -1,4 +1,3 @@
-import Autocomplete from "react-google-autocomplete";
 import { useEffect, useState } from "react";
 import "./Form.css";
 import countries from "../data/countries-data.json";
