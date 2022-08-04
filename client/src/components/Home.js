@@ -1,7 +1,6 @@
 import NavBar from "./NavBar"
 import Search from "./Search"
 import Carousels from "./Carousels"
-import Quotes from "./Quotes"
 
 
 
@@ -10,9 +9,6 @@ const Home = (props) => {
         <div>
             <Search />
             <Carousels />
-            <Quotes />
-            <hr />
-            <footer className="footer">Please send any feedback or suggestions to foobar@gmail.com</footer>
         </div>
     )
 }

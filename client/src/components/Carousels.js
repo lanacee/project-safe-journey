@@ -1,4 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
+import CarouselItem from 'react-bootstrap/esm/CarouselItem';
 import { Link } from 'react-router-dom'
 
 function Carousels() {
@@ -89,7 +90,53 @@ function Carousels() {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-        </div>
+            <h3 className="quote_title">What our users say</h3>
+                <Carousel>
+                    <CarouselItem>
+                        <div className="quote">
+                        <h1 className="quotemarks">"</h1>
+                        <p>As a person of colour I experienced quite a lot of racism in Italy and never really felt welcome.</p>
+                        <img className="references" src="https://img.freepik.com/free-photo/african-american-student-walking-street-talking-phone_1303-12696.jpg?w=996&t=st=1659525180~exp=1659525780~hmac=bab7602c52421528bebe9f97052f9d1cdb570a2bd25a7245d135d1ea89b7e73b" alt="anonymous profile" />
+                        </div>
+                    </CarouselItem>
+                    <CarouselItem>
+                        <div className="quote">
+                        <h1 className="quotemarks">"</h1>
+                        <p>Some of our friends said Vietnam wasn’t LGBTQIA+ traveller friendly but we had a great experience!</p>
+                        <img className="references" src="https://img.freepik.com/free-photo/young-people-celebrating-pride-month_23-2149333027.jpg?w=996&t=st=1659525241~exp=1659525841~hmac=5d86bd74063e0ace80226bb9bf10d7a101962350d65175b378f03ce096bcc7bb" alt="anonymous profile" />
+                        </div>
+                    </CarouselItem>
+                    <CarouselItem>
+                        
+                        <div className="quote">
+                        <h1 className="quotemarks">"</h1>
+                        <p>I was a solo female traveller in South America and found Brazil quite scary - I didn’t feel safe even in busy places during the day.</p>
+                        <img className="references" src="https://img.freepik.com/free-photo/portrait-confident-happy-woman-with-short-hair-cross-arms-chest-like-professional-smiling-standing-against-white-wall_176420-34241.jpg?w=996&t=st=1659525120~exp=1659525720~hmac=bd4c2679aeb971aa41792ce391e6446e3bb36ea55e6c6696ba1f93058665c351" alt="anonymous profile" />
+                        </div>
+                    </CarouselItem>
+                    <Carousel.Item>
+                        <div className="quote">
+                        <h1 className="quotemarks">"</h1>
+                        <p>Having Safe Journey has really made it easy to plan a trip without having to stress about feeling out of place</p>
+                        <img className="references" src="https://img.freepik.com/free-photo/portrait-young-muslim-woman-wearing-hijab-looking-camera_1157-49747.jpg?w=2000&t=st=1659607813~exp=1659608413~hmac=a6c76f23e8f6e8d4b760731a20d0fbaa8dca08221a179061a7f83f6d0c2a54a5" alt="anonymous profile" />
+                        </div>
+                    </Carousel.Item>
+                    <CarouselItem>
+                        <div className="quote">
+                        <h1 className="quotemarks">"</h1>
+                        <p>This initiative has really helped my partner and I feel comfortable while travelling</p>
+                        <img className="references" src="https://img.freepik.com/free-photo/cheerful-women-embracing-looking-camera_1262-17789.jpg?w=2000&t=st=1659607568~exp=1659608168~hmac=44b66b20169cda641adb7f74b6e1093ada8d2ff5fa4ba01da277739c910607c0" alt="anonymous profile" />
+                        </div>
+                    </CarouselItem>
+                    <CarouselItem>
+                        <div className="quote">
+                        <h1 className="quotemarks">"</h1>
+                        <p>I now have peace of mind that I will be safe in my travels. Thank you Safe Journey!</p>
+                        <img className="references" src="https://img.freepik.com/free-photo/portrait-confident-happy-woman-with-short-hair-cross-arms-chest-like-professional-smiling-standing-against-white-wall_176420-34241.jpg?w=996&t=st=1659525120~exp=1659525720~hmac=bd4c2679aeb971aa41792ce391e6446e3bb36ea55e6c6696ba1f93058665c351" alt="anonymous profile" />
+                        </div>
+                    </CarouselItem>
+                </Carousel>
+            </div>
     );
 }
 

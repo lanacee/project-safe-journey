@@ -44,7 +44,7 @@
 
 .continentTitle {
   text-decoration: none;
-  color: white;
+  color: black;
   font-size: 20px;
 }
 
@@ -55,6 +55,7 @@
 
 .continentDesc {
   font-size: 14px;
+  color: black;
 }
 
 .register {
@@ -67,7 +68,17 @@
   max-width: 50%;
   height: fit-content;
   margin: 0 auto;
+  opacity: 0.6;
 }
+
+.carouselText {
+  display: block;
+  max-width: 50%;
+  height: fit-content;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
 
 .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
