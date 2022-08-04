@@ -16,6 +16,15 @@ const Review = require("../models/review.js");
 
 //////////////////////////// Inserting Reviews into Countries ////////////////////////////
 
+
+// Get route of all reviews just to store data
+reviewsRouter.get("/", async (req, res) => {
+  const reviews = await Review.find({}).exec();
+  console.log(reviews);
+  res.status(200).json(reviews);
+});
+
+
 // index
 // this doesn't work for our app because we're not rendering all the reviews on homepage
 // only showing reviews for each individual page so changing this to suit that
