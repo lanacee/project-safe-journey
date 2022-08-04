@@ -147,21 +147,6 @@ const Form = ({ user, createReview }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     createReview(fields);
-    // Connect to API fetch('/something', {method: "POST"})
-    // fetch(`/reviews`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ ...fields, user_id: user.id }),
-    // }).then((res) => {
-    //   // return res.json();
-    //   if (res.ok) {
-    //     navigate("/my-reviews");
-    //   } else {
-    //     console.error("Can't save Review");
-    //   }
-    // });
   };
 
   return (
@@ -172,7 +157,6 @@ const Form = ({ user, createReview }) => {
       </div>
       <Select
         options={options}
-        // value={fields.country}
         name="country"
         placeholder="Choose your country"
         isSearchable
