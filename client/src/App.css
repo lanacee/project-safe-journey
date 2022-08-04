@@ -5,6 +5,7 @@
   color: #3d6d79;
 }
 
+
 html {
   height: 100%;
 }
@@ -131,4 +132,18 @@ html {
 
 .nav_review :hover {
   color: grey;
+}
+
+@media (max-width: 400px) {
+
+  .continentDesc {
+    visibility: hidden;
+  }
+
+  .continentTitle {
+    visibility: visible;
+    position: absolute;
+    bottom: 5px;
+    left: 55px;
+  }
 }

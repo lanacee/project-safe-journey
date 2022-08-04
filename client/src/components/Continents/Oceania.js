@@ -25,16 +25,7 @@ const Oceania = () => {
     return (
         <div className="all_continents">
             <h1>Oceania</h1>
-            <p>Australia and New Zealand’s medley of mountains, deserts, reefs, forests, beaches and multicultural cities are an eternal draw for travellers. Remote, beautiful and friendly, the Pacific islands’ white sands and clear waters are almost dreamlike in their perfection.</p>
-            <div>
-            <Autocomplete
-              apiKey={process.env.REACT_APP_GOOGLE_API}
-              onPlaceSelected={(place) => {
-                console.log(place.formatted_address);
-              }}
-              placeholder="Search for a country"
-            />
-            </div>
+            <p className="continent_desc">Australia and New Zealand’s medley of mountains, deserts, reefs, forests, beaches and multicultural cities are an eternal draw for travellers. Remote, beautiful and friendly, the Pacific islands’ white sands and clear waters are almost dreamlike in their perfection.</p>
             <div className="continent_container">
                 {oceList}
             </div>

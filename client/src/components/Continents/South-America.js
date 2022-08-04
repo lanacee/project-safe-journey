@@ -25,16 +25,7 @@ const SAmerica = () => {
     return (
         <div className="all_continents">
             <h1>South America</h1>
-            <p>Andean peaks, Amazonian rainforest, Patagonian glaciers, Incan ruins, white-sand beaches and vertiginous nightlife: the wonders of South America set the stage for incredible adventures.</p>
-            <div>
-            <Autocomplete
-              apiKey={process.env.REACT_APP_GOOGLE_API}
-              onPlaceSelected={(place) => {
-                console.log(place.formatted_address);
-              }}
-              placeholder="Search for a country"
-            />
-            </div>
+            <p className="continent_desc">Andean peaks, Amazonian rainforest, Patagonian glaciers, Incan ruins, white-sand beaches and vertiginous nightlife: the wonders of South America set the stage for incredible adventures.</p>
             <div className="continent_container">
                 {saList}
             </div>
