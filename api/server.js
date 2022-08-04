@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const mongoDBSession = require("connect-mongodb-session");
 // allow cross browser domain calls
-const cors = require("cors");
 const reviewsRouter = require("./controllers/reviews");
 const usersRouter = require("./controllers/user");
 
@@ -13,7 +12,6 @@ const app = express();
 const PORT = process.env.PORT;
 const dbURL = process.env.MONGODB_URL;
 console.log(PORT, dbURL);
-const whitelist = ["http://localhost:4001"];
 const MongoDBStore = mongoDBSession(session);
 const sessionStore = new MongoDBStore({
   uri: dbURL,
