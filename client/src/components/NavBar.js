@@ -21,7 +21,9 @@ function NavBar(props) {
             <Nav.Link href="/countries">☀ All Countries</Nav.Link>
             <Nav.Link href="/support">☮ Support Services</Nav.Link>
             {props.authorised && <Link to="/my-reviews">♚ My Reviews</Link>}
-            {props.authorised && <Nav.Link href="/reviews/new">✎ New Review</Nav.Link>}
+            {props.authorised && (
+              <Nav.Link href="/reviews/new">✎ New Review</Nav.Link>
+            )}
             <br />
             <Link to="/register">
               {" "}
@@ -30,8 +32,15 @@ function NavBar(props) {
               </Button>{" "}
             </Link>
             {/* Login/ logout functionality below */}
-            {props.authorised ? <Logout handleLogout={props.handleLogout} />
-              : <Link to="/login"><Button className="login" variant="primary">Log In</Button></Link>}
+            {props.authorised ? (
+              <Logout handleLogout={props.handleLogout} />
+            ) : (
+              <Link to="/login">
+                <Button className="login" variant="primary">
+                  Log In
+                </Button>
+              </Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
