@@ -100,7 +100,7 @@ const Ratings = ({ name, handleChange, value }) => {
 };
 
 const defaultValues = {
-  country: "",
+  country: "Albania",
   racism_experience: "0",
   lgbtqi_acceptance: "0",
   womens_safety: "0",
@@ -108,7 +108,7 @@ const defaultValues = {
 };
 
 const Form = ({ countries }) => {
-  // console.log(countries[0]);
+
   const [fields, setFields] = useState(defaultValues);
   const [country, setCountry] = useState(defaultValues.country);
   const [searchTerm, setSearchTerm] = useState("")
@@ -132,7 +132,7 @@ const Form = ({ countries }) => {
     event.preventDefault();
     console.log(fields);
     // Connect to API fetch('/something', {method: "POST"})
-    fetch(`${process.env.REACT_APP_API_ENDPOINT}/reviews`, {
+    fetch(`/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -172,7 +172,9 @@ const Form = ({ countries }) => {
         }).map((country) => {
           return (
             <div>
+
               <select  value={fields.country}>               
+
                   <option>{country.name}</option>
               </select>
             </div>

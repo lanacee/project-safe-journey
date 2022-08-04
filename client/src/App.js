@@ -29,13 +29,6 @@ const App = () => {
   const [authorised, setAuthorised] = useState(null);
   const [user, setUser] = useState(null)
   const navigate = useNavigate();
-  fetch(`${process.env.REACT_APP_API_ENDPOINT}/reviews`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data);
-    });
 
   const handleAuth = (authed) => {
     setAuthorised(authed.authorised);
@@ -50,9 +43,7 @@ const App = () => {
 
   useEffect(() => {
     const checkIfLoggedIn = async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_API_ENDPOINT}/users/isauthorised`
-      );
+      const res = await fetch(`/users/isauthorised`);
       const data = await res.json();
       console.log(data.msg);
       setAuthorised(data.authorised);
@@ -63,7 +54,9 @@ const App = () => {
   const [reviews, setReviews] = useState(null)
 
   const getReviews = async () => {
+
     const url = '/reviews'
+
     const res = await fetch(url)
     const data = await res.json()
     setReviews(data)
@@ -77,14 +70,16 @@ const App = () => {
     console.log('App.js create review with name:', name)
   }
 
+
   const handleDelete = async (reviewID) => {
     await fetch(`/countries/${reviewID}`, {
+
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       }
     })
-    setReviews(reviews.filter((rv) => rv._id !== reviewID))
+    setReviews(reviews.filter((rv) => rv._id !== review.country))
   }
 
   return (
@@ -101,15 +96,19 @@ const App = () => {
           </ProtectedRoute>
         } />
         <Route
+
           path="/my-reviews"
           element={reviews && user && <UserReviews
+
             reviews={reviews}
             user={user}
             handleCreate={handleCreate}
             handleDelete={handleDelete}
           />}
         />
+
         <Route path="/countries/:countryname" element={reviews && <CountryReviewDetail reviews={reviews} />} />
+
         <Route
           path="/register"
           element={<Register handleRegister={handleAuth} />}

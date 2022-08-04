@@ -1,10 +1,12 @@
 import { useParams } from 'react-router-dom'
 
 const CountryReviewDetail = (props) => {
+
   const { countryname } = useParams()
  
   const review = props.reviews.find((review) => review.country === countryname)
   console.log(review);
+
   return (
       <div>
         <h3>Review Info:</h3>
