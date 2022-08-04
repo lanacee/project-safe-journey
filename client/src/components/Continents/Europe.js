@@ -25,16 +25,7 @@ const Europe = () => {
     return (
         <div className="all_continents">
             <h1>Europe</h1>
-            <p>There simply is no way to tour Europe and not be awestruck by its natural beauty, epic history and dazzling artistic and culinary diversity.</p>
-            <div>
-            <Autocomplete
-              apiKey={process.env.REACT_APP_GOOGLE_API}
-              onPlaceSelected={(place) => {
-                console.log(place.formatted_address);
-              }}
-              placeholder="Search for a country"
-            />
-            </div>
+            <p className="continent_desc">There simply is no way to tour Europe and not be awestruck by its natural beauty, epic history and dazzling artistic and culinary diversity.</p>
             <div className="continent_container">
                 {euroList}
             </div>

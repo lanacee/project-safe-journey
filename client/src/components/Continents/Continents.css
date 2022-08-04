@@ -55,4 +55,8 @@
     .all_continents {
       font-size: 36px;
     }
+
+    .continent_desc {
+        font-size: 20px;
+    }
   }
