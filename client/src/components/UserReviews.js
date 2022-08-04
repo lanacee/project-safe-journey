@@ -45,7 +45,10 @@ const ReviewRow = (props) => {
   }
   
   const Reviews = (props) => {
-    const reviewsRows = props.review.map((review) => {
+    console.log(props);
+    const reviewsRows = props.reviews.filter((review) => {
+      return review.user_id === props.user.id
+    }).map((review) => {
       return (
         <ReviewRow
           key={review._id}
@@ -58,7 +61,6 @@ const ReviewRow = (props) => {
     return (
       <>
         <h1>Reviews</h1>
-        <CreateForm handleCreate={props.handleCreate} />
         <table>
           <thead>
             <tr>

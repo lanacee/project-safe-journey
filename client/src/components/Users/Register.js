@@ -23,7 +23,7 @@ const Register = (props) => {
     );
     const data = await res.json();
     console.log(data);
-    props.handleRegister();
+    props.handleRegister(data);
   };
 
   return (

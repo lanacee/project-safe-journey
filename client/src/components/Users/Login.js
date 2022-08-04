@@ -23,7 +23,7 @@ const Login = (props) => {
     );
     const data = await res.json();
     console.log(data.msg);
-    props.handleLogin(data.authorised);
+    props.handleLogin(data);
   };
 
   return (
