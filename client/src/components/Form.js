@@ -121,7 +121,7 @@ const Form = ({ countries, user }) => {
   const handleChange = (event) => {
     const { name, value, checked, type } = event.target;
     // console.log(name, value, checked, type);
-    setSearchTerm(event.target.value)
+    setSearchTerm(event.target.value);
     setFields({
       ...fields,
       [name]: type === "checkbox" ? checked : value,
@@ -136,7 +136,7 @@ const Form = ({ countries, user }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({...fields, user_id: user.id}),
+      body: JSON.stringify({ ...fields, user_id: user.id }),
     }).then((res) => {
       // return res.json();
     });
@@ -150,12 +150,10 @@ const Form = ({ countries, user }) => {
       </div>
 
       <div>
-
-      <input
+        <input
           name="country"
           type="text"
           placeholder="Search Country"
-
           // onChange={(event) => {
           //   setSearchTerm(event.target.value)
           // }}
@@ -163,24 +161,25 @@ const Form = ({ countries, user }) => {
           value={fields.country}
         />
 
-        {countries.filter((country) => {
-          if (searchTerm === "") {
-            return country
-          } else if (country.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return country
-          }
-        }).map((country) => {
-          return (
-            <div>
-
-              <select  value={fields.country}>               
-
-                  <option>{country.name}</option>
-              </select>
-            </div>
-          )
-        })} 
-
+        {countries
+          .filter((country) => {
+            if (searchTerm === "") {
+              return country;
+            } else if (
+              country.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return country;
+            }
+          })
+          .map((country) => {
+            return (
+              <div>
+                <select value={fields.country}>
+                  <option value={country.name}>{country.name}</option>
+                </select>
+              </div>
+            );
+          })}
       </div>
 
       <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
@@ -230,4 +229,4 @@ const Form = ({ countries, user }) => {
 };
 
 export default Form;
-export {Ratings}
+export { Ratings };
