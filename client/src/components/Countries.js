@@ -1,8 +1,10 @@
 
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import "./Countries.css"
-import Autocomplete from "react-google-autocomplete";
+import { Link } from "react-router-dom";
+import "./Countries.css";
+import Select from "react-select";
+import countries from "../data/countries-data.json";
+import { useState } from "react";
+
 
 const CountryCard = (props) => {
     let min = Math.ceil(400)
@@ -36,39 +38,36 @@ const CountryCard = (props) => {
   );
 };
 
+const options = countries.map((country) => {
+  return { label: country.name, value: country.name };
+});
+
 const Countries = (props) => {
 
-    const [searchTerm, setSearchTerm] = useState("");
+  const [country, setCountry] = useState(null);
+  const countryItems = props.data.map((country) => {
+    return <CountryCard country={country} />;
+  });
 
-    const handleChange = (event) => {
-        setSearchTerm(event.target.value);
-    };
+  const handleSelect = ({ value }) => {
+    setCountry({ name: value });
+  };
 
-    const countryItems = props.data.map((country) => {
-        return (
-            <CountryCard country={country} />
-        )
-    })
-    return (
-        <div >
-            <h1 className="all_countries">All Countries</h1>
-            <div>
-
-
-                {/* <Autocomplete
-              apiKey={process.env.REACT_APP_GOOGLE_API}
-              onPlaceSelected={(place) => {
-                console.log(place.formatted_address);
-              }}
-              placeholder="Search for a country"
-            />  */}
-             </div>
-            <div className="countries_container">
-            {countryItems}  
-            </div>
-        </div>
-    )
-}
-
+  return (
+    <div>
+      <h1 className="all_countries">All Countries</h1>
+      <Select
+        options={options}
+        name="country"
+        placeholder="Choose your country"
+        isSearchable
+        onChange={handleSelect}
+      />
+      <div className="countries_container">
+        {country ? <CountryCard country={country} /> : countryItems}
+      </div>
+    </div>
+  );
+};
 
 export default Countries;
