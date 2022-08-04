@@ -51,14 +51,15 @@ reviewsRouter.post("/countries/:countryname", async (req, res) => {
 
 // Update Route
 // We don't have Id in params since we're using country names
-reviewsRouter.put("/countries/:countryname", async (req, res) => {
+reviewsRouter.put("/my-reviews/edit/:reviewID", async (req, res) => {
+  console.log("is this working");
   const updateReview = await Review.findByIdAndUpdate(req.body._id, req.body, { new: true}).exec()
   console.log(updateReview);
   res.status(200).json(updateReview)
 })
 
 // Delete Route
-reviewsRouter.delete("/countries/:countryname", async (req, res) => {
+reviewsRouter.delete("/my-reviews", async (req, res) => {
   const deleteReview = await Review.findByIdAndDelete(req.body._id).exec()
   console.log(deleteReview);
   res.status(200).json(deleteReview)

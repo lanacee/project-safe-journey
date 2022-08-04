@@ -230,3 +230,4 @@ const Form = ({ countries, user }) => {
 };
 
 export default Form;
+export {Ratings}
