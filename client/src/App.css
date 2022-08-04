@@ -33,7 +33,7 @@ html {
 
 .register {
   margin-bottom: 10px;
-  margin-right: 10px;
+  margin-right: 3px;
 }
 
 .carouselImg {
@@ -68,7 +68,7 @@ html {
 }
 
 .quote_title {
-  margin-top: 20px;
+  margin-top: 50px;
   text-align: center;
   grid-column: 2 / 3;
   grid-row: 1 / 2;
@@ -117,6 +117,7 @@ html {
 
 .service {
   text-align: left;
+  margin-left: 10px;
 }
 
 .logout_button {

@@ -154,13 +154,38 @@ const Form = ({ user, createReview }) => {
         <h1>Submit a review</h1>
         <p>What was your experience of travelling in this country?</p>
       </div>
-      <Select
-        options={options}
-        name="country"
-        placeholder="Choose your country"
-        isSearchable
-        onChange={handleSelect}
-      />
+
+
+      <div>
+        <input
+          name="country"
+          type="text"
+          placeholder="Search Country"
+          onChange={handleChange}
+          value={fields.country}
+        />
+
+        {countries
+          .filter((country) => {
+            if (searchTerm === "") {
+              return country;
+            } else if (
+              country.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return country;
+            }
+          })
+          .map((country) => {
+            return (
+              <div>
+                <select value={fields.country}>
+                  <option value={country.name}>{country.name}</option>
+                </select>
+              </div>
+            );
+          })}
+      </div>
+
 
       <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
         <label>As a member of the LGBTQIA+ community</label>
