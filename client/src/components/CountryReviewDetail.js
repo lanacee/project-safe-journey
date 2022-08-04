@@ -3,25 +3,36 @@ import { useParams } from 'react-router-dom'
 const CountryReviewDetail = (props) => {
 
   const { countryname } = useParams()
- 
+
   const review = props.reviews.find((review) => review.country === countryname)
   console.log(review);
 
   return (
-      <div>
-        <h3>Review Info:</h3>
-          <h4>{review.name}</h4>
-          <h6>
-            <span>Lorem:</span>{review.lgbtqi_acceptance}
-          </h6>
-          <h6>
-            <span>Lorem:</span>{review.racism_experience}
-          </h6>
-          <p>
-            <span>Lorem:</span> {review.description}
-          </p>
-      </div>
-    )
-  }
+    <div>
+      <h3>{countryname} Reviews:</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Detail</th>
+            <th>Experience of Racism</th>
+            <th>Experience as a Woman</th>
+            <th>LGBTQIA+ Acceptance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <p>{review.description}</p>
+            </td>
+            <td>{review.racism_experience}</td>
+            <td>{review.lgbtqi_acceptance}</td>
+            <td>{review.womens_safety}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  )
+}
 
 export default CountryReviewDetail

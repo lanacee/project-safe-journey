@@ -100,6 +100,7 @@ const Ratings = ({ name, handleChange, value }) => {
 };
 
 const defaultValues = {
+  user_id: "",
   country: "",
   racism_experience: "0",
   lgbtqi_acceptance: "0",
@@ -107,8 +108,8 @@ const defaultValues = {
   description: "",
 };
 
-const Form = ({ countries }) => {
-
+const Form = ({ countries, user }) => {
+  console.log(user);
   const [fields, setFields] = useState(defaultValues);
   const [country, setCountry] = useState(defaultValues.country);
   const [searchTerm, setSearchTerm] = useState("");

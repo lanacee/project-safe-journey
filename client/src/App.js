@@ -79,7 +79,7 @@ const App = () => {
         'Content-Type': 'application/json'
       }
     })
-    setReviews(reviews.filter((rv) => rv._id !== review.country))
+    // setReviews(reviews.filter((rv) => rv._id !== review.country))
   }
 
   return (
@@ -92,13 +92,13 @@ const App = () => {
         <Route path="/support" element={<Services />} />
         <Route path="/reviews/new" element={
           <ProtectedRoute authorised={authorised}>
-            <Form countries={countries} />
+           {reviews && user && <Form countries={countries} user={user} />}
           </ProtectedRoute>
         } />
         <Route
 
           path="/my-reviews"
-          element={reviews && user && <UserReviews
+          element={user && <UserReviews
 
             reviews={reviews}
             user={user}

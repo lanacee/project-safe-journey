@@ -20,6 +20,7 @@ const Login = (props) => {
     });
     const data = await res.json();
     console.log(data.msg);
+    console.log(data.user.id);
     props.handleLogin(data);
   };
 
