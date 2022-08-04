@@ -100,7 +100,7 @@ const Ratings = ({ name, handleChange, value }) => {
 };
 
 const defaultValues = {
-  country: "",
+  country: "Albania",
   racism_experience: "0",
   lgbtqi_acceptance: "0",
   womens_safety: "0",
@@ -108,7 +108,6 @@ const defaultValues = {
 };
 
 const Form = ({ countries }) => {
-  console.log(countries[0]);
   const [fields, setFields] = useState(defaultValues);
   const [country, setCountry] = useState(defaultValues.country);
   const [searchTerm, setSearchTerm] = useState("")
@@ -167,7 +166,7 @@ const Form = ({ countries }) => {
         }).map((country) => {
           return (
             <div>
-              <select onChange={handleChange}>               
+              <select value={fields.country} onChange={handleChange}>               
                   <option>{country.name}</option>
               </select>
             </div>

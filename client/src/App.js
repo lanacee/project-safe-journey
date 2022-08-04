@@ -61,7 +61,7 @@ const App = () => {
   const [reviews, setReviews] = useState(null)
 
   const getReviews = async () => {
-    const url = 'http://localhost:4000/reviews'
+    const url = 'http://localhost:4000/countries/:countryName'
     const res = await fetch(url)
     const data = await res.json()
     setReviews(data)
@@ -75,14 +75,14 @@ const App = () => {
     console.log('App.js create review with name:', name)
   }
 
-  const handleDelete = async (reviewID) => {
-    await fetch(`http://localhost:4000/countries/${reviewID}`, {
+  const handleDelete = async (review) => {
+    await fetch(`http://localhost:4000/countries/${review.country}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       }
     })
-    setReviews(reviews.filter((rv) => rv._id !== reviewID))
+    setReviews(reviews.filter((rv) => rv._id !== review.country))
   }
 
   return (
@@ -99,14 +99,14 @@ const App = () => {
           </ProtectedRoute>
         } />
         <Route
-          path="/"
+          path="/countries/:countryName"
           element={reviews && <CountryReviews
             reviews={reviews}
             handleCreate={handleCreate}
             handleDelete={handleDelete}
           />}
         />
-        <Route path="/:reviewID" element={reviews && <CountryReviewDetail reviews={reviews} />} />
+        <Route path="/:countryName/:reviewID" element={reviews && <CountryReviewDetail reviews={reviews} />} />
         <Route
           path="/register"
           element={<Register handleRegister={handleAuth} />}
