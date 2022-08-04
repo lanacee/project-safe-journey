@@ -4,10 +4,8 @@ const Search = (props) => {
   return (
     <div className="container">
       <div className="header">
-        <h3>To feel safe when you are out and about exploring</h3>
-        <p>
-          "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
-          consectetur, adipisci velit..."
+        <h3>Feel safe when you're out and about exploring</h3>
+        <p>Read travel reviews from other people like you
         </p>
         <div>
           <div>

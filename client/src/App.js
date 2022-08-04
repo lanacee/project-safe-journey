@@ -1,21 +1,29 @@
-import "./App.css";
-import NavBar from "./components/NavBar";
-import Countries from "./components/Countries";
-import Home from "./components/Home";
-import Form from "./components/Form";
-import Login from "./components/Users/Login";
-import countryData from "./data/countries-data.json";
-import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Register from "./components/Users/Register";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
+import "./App.css";
+import countryData from "./data/countries-data.json";
 import countries from "./data/countries-data.json";
-import Africa from "./components/Continents/Africa";
-import Asia from "./components/Continents/Asia";
-import Europe from "./components/Continents/Europe";
-import NAmerica from "./components/Continents/North-America";
-import Oceania from "./components/Continents/Oceania";
-import SAmerica from "./components/Continents/South-America";
+
+import NavBar from "./components/NavBar";
+import Home from "./components/Home";
+import About from "./components/About"
+import Login from "./components/Users/Login";
+import Logout from "./components/Users/Logout";
+import Register from "./components/Users/Register";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Form from "./components/Form";
+import CountryReviews from "./components/CountryReviews";
+import CountryReviewDetail from "./components/CountryReviewDetail"
+import Countries from "./components/Countries";
+import Services from "./components/Services";
+
+import Africa from "./components/Continents/Africa"
+import Asia from "./components/Continents/Asia"
+import Europe from "./components/Continents/Europe"
+import NAmerica from "./components/Continents/North-America"
+import Oceania from "./components/Continents/Oceania"
+import SAmerica from "./components/Continents/South-America"
 
 const App = () => {
   const [authorised, setAuthorised] = useState(null);
@@ -41,24 +49,69 @@ const App = () => {
     checkIfLoggedIn();
   }, []);
 
+  const [reviews, setReviews] = useState(null)
+
+  const getReviews = async () => {
+    const url = 'http://localhost:4000/countries/:countryName'
+    const res = await fetch(url)
+    const data = await res.json()
+    setReviews(data)
+  }
+
+  useEffect(() => {
+    getReviews()
+  }, [])
+
+  const handleCreate = (name) => {
+    console.log('App.js create review with name:', name)
+  }
+
+  const handleDelete = async (review) => {
+    await fetch(`http://localhost:4000/countries/${review.country}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    setReviews(reviews.filter((rv) => rv._id !== review.country))
+  }
+
   return (
     <div className="App">
-      <NavBar />
+      <NavBar authorised={authorised} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/countries" element={<Countries data={countryData} />} />
-        <Route path="/login" element={<Login handleLogin={handleAuth} />} />
+        <Route path="/support" element={<Services />} />
+        <Route path="/reviews/new" element={
+          <ProtectedRoute authorised={authorised}>
+            <Form countries={countries} />
+          </ProtectedRoute>
+        } />
+        <Route
+          path="/countries/:countryName"
+          element={reviews && <CountryReviews
+            reviews={reviews}
+            handleCreate={handleCreate}
+            handleDelete={handleDelete}
+          />}
+        />
+        <Route path="/:countryName/:reviewID" element={reviews && <CountryReviewDetail reviews={reviews} />} />
         <Route
           path="/register"
           element={<Register handleRegister={handleAuth} />}
         />
-        <Route path="/reviews/new" element={<Form countries={countries} />} />
+        <Route path="/login" element={<Login handleLogin={handleAuth} />} />
+        <Route path="logout" element={<Logout handleLogout={handleLogout} />} />
+        
         <Route path="/Africa" element={<Africa />} />
         <Route path="/Asia" element={<Asia />} />
         <Route path="/Europe" element={<Europe />} />
         <Route path="/North-America" element={<NAmerica />} />
         <Route path="/Oceania" element={<Oceania />} />
         <Route path="/South-America" element={<SAmerica />} />
+
       </Routes>
     </div>
   );

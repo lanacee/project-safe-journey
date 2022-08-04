@@ -1,9 +1,12 @@
 import africaData from "../../data/africa-data.json"
 import { Link } from "react-router-dom"
 import "./Continents.css"
+import Autocomplete from "react-google-autocomplete";
 
 const AfricaList = (props) => {
-    const randomInteger = Math.floor(Math.random() * 600)
+    let min = Math.ceil(400)
+    let max = Math.floor(600)
+    const randomInteger = Math.floor(Math.random() * (max - min) + min)
     return (
         <div className="continent_item">
             <img className="continent_img" src={"https://placeimg.com/" + randomInteger + "/" + randomInteger + "/nature"} alt="random nature" />
@@ -22,6 +25,16 @@ const Africa = () => {
     return (
         <div className="all_continents">
             <h1>Africa</h1>
+            <p>Africa. There's nowhere like it on the planet for wildlife, wild lands and rich traditions that endure. Prepare to fall in love.</p>
+            <div>
+            <Autocomplete
+              apiKey={process.env.REACT_APP_GOOGLE_API}
+              onPlaceSelected={(place) => {
+                console.log(place.formatted_address);
+              }}
+              placeholder="Search for a country"
+            />
+            </div>
             <div className="continent_container">
                 {africaList}
             </div>

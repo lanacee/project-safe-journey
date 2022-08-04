@@ -15,7 +15,9 @@ function Carousels() {
                     />
                     <Carousel.Caption>
                         <Link className="continentTitle" to="/Africa"><h3 className="continentTitle">Africa</h3></Link>
-                        <p className="continentDesc">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <p className="continentDesc">Africa. There's nowhere like it on the planet for wildlife, wild lands and rich traditions that endure. Prepare to fall in love.
+
+</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -27,7 +29,7 @@ function Carousels() {
 
                     <Carousel.Caption>
                         <Link className="continentTitle" to="/Asia"><h3 className="continentTitle">Asia</h3></Link>
-                        <p className="continentDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p className="continentDesc">From the nomadic steppes of Kazakhstan to the frenetic streets of Hanoi, Asia is a continent so full of intrigue, adventure, solace and spirituality that it has fixated and confounded travellers for centuries.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -40,7 +42,7 @@ function Carousels() {
                     <Carousel.Caption>
                         <Link className="continentTitle" to="/Europe"><h3 className="continentTitle">Europe</h3></Link>
                         <p className="continentDesc">
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                        There simply is no way to tour Europe and not be awestruck by its natural beauty, epic history and dazzling artistic and culinary diversity.
                         </p>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -54,7 +56,7 @@ function Carousels() {
                     <Carousel.Caption>
                         <Link className="continentTitle" to="/North-America"><h3 className="continentTitle">North America</h3></Link>
                         <p className="continentDesc">
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                        The heart of North America beats through towering forests, undulating fields, high-plain deserts, pulsating metropolises and offbeat oases.
                         </p>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -68,7 +70,7 @@ function Carousels() {
                     <Carousel.Caption>
                         <Link className="continentTitle" to="/Oceania"><h3 className="continentTitle">Oceania</h3></Link>
                         <p className="continentDesc">
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                        Australia and New Zealand’s medley of mountains, deserts, reefs, forests, beaches and multicultural cities are an eternal draw for travellers. Remote, beautiful and friendly, the Pacific islands’ white sands and clear waters are almost dreamlike in their perfection.
                         </p>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -82,7 +84,7 @@ function Carousels() {
                     <Carousel.Caption>
                         <Link className="continentTitle" to="/South-America"><h3 className="continentTitle">South America</h3></Link>
                         <p className="continentDesc">
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                        Andean peaks, Amazonian rainforest, Patagonian glaciers, Incan ruins, white-sand beaches and vertiginous nightlife: the wonders of South America set the stage for incredible adventures.
                         </p>
                     </Carousel.Caption>
                 </Carousel.Item>

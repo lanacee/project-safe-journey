@@ -3,9 +3,9 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import Autocomplete from "react-google-autocomplete";
+import Logout from "./Users/Logout";
 
-function NavBar() {
+function NavBar(props) {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -16,32 +16,22 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">⌂ Home </Nav.Link>
-            <Nav.Link href="/profile">♚ Profile</Nav.Link>
-            <Nav.Link href="/support">☮ Support Services</Nav.Link>
+            <Nav.Link href="/">⌂ Home</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/countries">☀ All Countries</Nav.Link>
-            <Link to={"/reviews/new"}>✎ New Review</Link>
-
-            <Autocomplete
-              //   apiKey={process.env.GOOGLE_API}
-              apiKey={process.env.REACT_APP_GOOGLE_API}
-              onPlaceSelected={(place) => {
-                console.log(place);
-              }}
-              placeholder="Search for a country"
-            />
+            <Nav.Link href="/support">☮ Support Services</Nav.Link>
+            {props.authorised && <Nav.Link href="/my-reviews">♚ My Reviews</Nav.Link>}
+            {props.authorised && <Nav.Link href="/reviews/new">✎ New Review</Nav.Link>}
+            <br />
             <Link to="/register">
               {" "}
               <Button className="register" variant="secondary">
                 Register
               </Button>{" "}
             </Link>
-            <Link to="/login">
-              {" "}
-              <Button className="login" variant="primary">
-                Log In
-              </Button>{" "}
-            </Link>
+            {/* Login/ logout functionality below */}
+            {props.authorised ? <Logout handleLogout={props.handleLogout} />
+              : <Link to="/login"><Button className="login" variant="primary">Log In</Button></Link>}
           </Nav>
         </Navbar.Collapse>
       </Container>

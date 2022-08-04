@@ -100,7 +100,7 @@ const Ratings = ({ name, handleChange, value }) => {
 };
 
 const defaultValues = {
-  country: "",
+  country: "Albania",
   racism_experience: "0",
   lgbtqi_acceptance: "0",
   womens_safety: "0",
@@ -108,9 +108,9 @@ const defaultValues = {
 };
 
 const Form = ({ countries }) => {
-  console.log(countries[0]);
   const [fields, setFields] = useState(defaultValues);
   const [country, setCountry] = useState(defaultValues.country);
+  const [searchTerm, setSearchTerm] = useState("")
 
   // We need to do this because Google onPlaceSelected uses inital fields values from setting function
   useEffect(() => {
@@ -145,28 +145,39 @@ const Form = ({ countries }) => {
     <form onSubmit={handleSubmit}>
       <div>
         <h1>Submit a review</h1>
-        <p>What were your experience in the country?</p>
+        <p>What was your experience of travelling in this country?</p>
       </div>
 
       <div>
-        <select onChange={handleChange}>
-          {countries.map((country) => (
-            <option>{country.name}</option>
-          ))}
-        </select>
-        <Autocomplete
-          apiKey={process.env.REACT_APP_GOOGLE_API}
-          onPlaceSelected={(place) => {
-            setCountry(place.formatted_address);
+        <input
+          type="text"
+          placeholder="Search Country"
+          onChange={(event) => {
+            setSearchTerm(event.target.value)
           }}
-          style={{}}
-          placeholder="Search for a country"
-          options={{ types: ["countries"] }}
         />
+
+        {countries.filter((country) => {
+          if (searchTerm === "") {
+            return country
+          } else if (country.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return country
+          }
+        }).map((country) => {
+          return (
+            <div>
+              <select value={fields.country} onChange={handleChange}>               
+                  <option>{country.name}</option>
+              </select>
+            </div>
+          )
+        })}
+        
+
       </div>
 
       <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
-        <label>As a member of the LGBTQI+ community</label>
+        <label>As a member of the LGBTQIA+ community</label>
         <Ratings
           name={"lgbtqi_acceptance"}
           handleChange={handleChange}
@@ -184,7 +195,7 @@ const Form = ({ countries }) => {
       </div>
 
       <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
-        <label>As a person identifying as a woman</label>
+        <label>As a woman</label>
         <Ratings
           name={"womens_safety"}
           handleChange={handleChange}
