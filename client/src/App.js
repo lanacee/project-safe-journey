@@ -55,9 +55,7 @@ const App = () => {
   const [reviews, setReviews] = useState(null)
 
   const getReviews = async () => {
-
     const url = '/reviews'
-
     const res = await fetch(url)
     const data = await res.json()
     setReviews(data)
@@ -73,14 +71,13 @@ const App = () => {
 
 
   const handleDelete = async (reviewID) => {
-    await fetch(`/countries/${reviewID}`, {
-
+    await fetch(`/my-reviews`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       }
     })
-    // setReviews(reviews.filter((rv) => rv._id !== review.country))
+    setReviews(reviews.filter((rv) => rv._id !== reviewID))
   }
 
   return (
