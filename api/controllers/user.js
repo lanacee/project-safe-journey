@@ -53,6 +53,10 @@ userRouter.post("/login", async (req, res) => {
     res.status(200).json({
       msg: "You have logged in successfully",
       authorised: true,
+      user: {
+        id: user._id,
+        username: user.username,
+      },
     });
   }
 });
@@ -73,6 +77,10 @@ userRouter.get("/isauthorised", async (req, res) => {
     return res.status(200).json({
       msg: "User is logged in",
       authorised: true,
+      user: {
+        id: req.session.currentUser._id,
+        username: req.session.currentUser.username,
+      },
     });
   } else {
     return res.status(200).json({

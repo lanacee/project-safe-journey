@@ -108,6 +108,7 @@ const defaultValues = {
 };
 
 const Form = ({ countries }) => {
+
   const [fields, setFields] = useState(defaultValues);
   const [country, setCountry] = useState(defaultValues.country);
   const [searchTerm, setSearchTerm] = useState("");
@@ -120,6 +121,7 @@ const Form = ({ countries }) => {
   const handleChange = (event) => {
     const { name, value, checked, type } = event.target;
     // console.log(name, value, checked, type);
+    setSearchTerm(event.target.value)
     setFields({
       ...fields,
       [name]: type === "checkbox" ? checked : value,
@@ -149,33 +151,37 @@ const Form = ({ countries }) => {
       </div>
 
       <div>
-        <input
+
+      <input
+          name="country"
           type="text"
           placeholder="Search Country"
-          onChange={(event) => {
-            setSearchTerm(event.target.value);
-          }}
+
+          // onChange={(event) => {
+          //   setSearchTerm(event.target.value)
+          // }}
+          onChange={handleChange}
+          value={fields.country}
         />
 
-        {countries
-          .filter((country) => {
-            if (searchTerm === "") {
-              return country;
-            } else if (
-              country.name.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
-              return country;
-            }
-          })
-          .map((country) => {
-            return (
-              <div>
-                <select value={fields.country} onChange={handleChange}>
+        {countries.filter((country) => {
+          if (searchTerm === "") {
+            return country
+          } else if (country.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return country
+          }
+        }).map((country) => {
+          return (
+            <div>
+
+              <select  value={fields.country}>               
+
                   <option>{country.name}</option>
-                </select>
-              </div>
-            );
-          })}
+              </select>
+            </div>
+          )
+        })} 
+
       </div>
 
       <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
