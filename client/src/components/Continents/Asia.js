@@ -1,5 +1,7 @@
 import asiaData from "../../data/asia-data.json";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Select from "react-select";
 import "./Continents.css";
 
 const AsiaList = (props) => {
@@ -27,6 +29,13 @@ const AsiaList = (props) => {
 };
 
 const Asia = () => {
+    const [country, setCountry] = useState(null);
+    const handleSelect = ({ value }) => {
+        setCountry({ name: value });
+    };
+    const options = asiaData.map((country) => {
+        return { label: country.name, value: country.name };
+    });
   const asiaList = asiaData.map((country) => {
     return <AsiaList country={country} key={country._id} />;
   });
@@ -39,7 +48,16 @@ const Asia = () => {
         spirituality that it has fixated and confounded travellers for
         centuries.
       </p>
-      <div className="continent_container">{asiaList}</div>
+      <Select
+                options={options}
+                name="country"
+                placeholder="Choose your country"
+                isSearchable
+                onChange={handleSelect}
+            />
+            <div className="continent_container">
+                {country ? <asiaList country={country} key={country._id} /> : asiaList}
+            </div>
     </div>
   );
 };
