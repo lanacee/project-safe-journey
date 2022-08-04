@@ -16,6 +16,8 @@
     "react-google-autocomplete": "^2.7.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.4.0",
+    "react-select-search": "^3.0.10",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
