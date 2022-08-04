@@ -100,7 +100,7 @@ const Ratings = ({ name, handleChange, value }) => {
 };
 
 const defaultValues = {
-  country: "Albania",
+  country: "",
   racism_experience: "0",
   lgbtqi_acceptance: "0",
   womens_safety: "0",
@@ -111,7 +111,7 @@ const Form = ({ countries }) => {
 
   const [fields, setFields] = useState(defaultValues);
   const [country, setCountry] = useState(defaultValues.country);
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("");
 
   // We need to do this because Google onPlaceSelected uses inital fields values from setting function
   useEffect(() => {
@@ -156,6 +156,7 @@ const Form = ({ countries }) => {
           name="country"
           type="text"
           placeholder="Search Country"
+
           // onChange={(event) => {
           //   setSearchTerm(event.target.value)
           // }}
@@ -180,6 +181,7 @@ const Form = ({ countries }) => {
             </div>
           )
         })} 
+
       </div>
 
       <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
