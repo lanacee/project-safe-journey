@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Login.css";
 
 const Login = (props) => {
   const [fields, setFields] = useState({ username: "", password: "" });
@@ -28,7 +29,9 @@ const Login = (props) => {
     <form onSubmit={handleSubmit}>
       <h1>Log In</h1>
       <div>
-        <label htmlFor="username">Username</label>
+        <label className="user" htmlFor="username">
+          Username
+        </label>
         <input
           value={fields.username}
           onChange={handleChange}
@@ -37,8 +40,10 @@ const Login = (props) => {
           id="username"
         />
       </div>
-      <div>
-        <label htmlFor="password">Password</label>
+      <div className="marginlg">
+        <label className="user" htmlFor="password">
+          Password
+        </label>
         <input
           value={fields.password}
           onChange={handleChange}
@@ -47,8 +52,8 @@ const Login = (props) => {
           id="password"
         />
       </div>
-      <input type="submit" value="Login" />
-      <p>
+      <input className="marginlg" type="submit" value="Login" />
+      <p className="marginlg">
         No account yet? <Link to="/register">Register here</Link>
       </p>
     </form>
