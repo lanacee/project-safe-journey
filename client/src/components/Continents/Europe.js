@@ -1,5 +1,7 @@
 import euroData from "../../data/europe-data.json";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Select from "react-select";
 import "./Continents.css";
 
 const EuroList = (props) => {
@@ -27,6 +29,13 @@ const EuroList = (props) => {
 };
 
 const Europe = () => {
+    const [country, setCountry] = useState(null);
+    const handleSelect = ({ value }) => {
+        setCountry({ name: value });
+    };
+    const options = euroData.map((country) => {
+        return { label: country.name, value: country.name };
+    });
   const euroList = euroData.map((country) => {
     return <EuroList country={country} key={country._id} />;
   });
@@ -38,7 +47,16 @@ const Europe = () => {
         natural beauty, epic history and dazzling artistic and culinary
         diversity.
       </p>
-      <div className="continent_container">{euroList}</div>
+      <Select
+                options={options}
+                name="country"
+                placeholder="Choose your country"
+                isSearchable
+                onChange={handleSelect}
+            />
+            <div className="continent_container">
+                {country ? <euroList country={country} key={country._id} /> : euroList}
+            </div>
     </div>
   );
 };
