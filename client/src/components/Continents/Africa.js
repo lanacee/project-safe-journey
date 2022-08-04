@@ -25,16 +25,7 @@ const Africa = () => {
     return (
         <div className="all_continents">
             <h1>Africa</h1>
-            <p>Africa. There's nowhere like it on the planet for wildlife, wild lands and rich traditions that endure. Prepare to fall in love.</p>
-            <div>
-            <Autocomplete
-              apiKey={process.env.REACT_APP_GOOGLE_API}
-              onPlaceSelected={(place) => {
-                console.log(place.formatted_address);
-              }}
-              placeholder="Search for a country"
-            />
-            </div>
+            <p className="continent_desc">Africa. There's nowhere like it on the planet for wildlife, wild lands and rich traditions that endure. Prepare to fall in love.</p>
             <div className="continent_container">
                 {africaList}
             </div>

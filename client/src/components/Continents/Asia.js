@@ -25,16 +25,7 @@ const Asia = () => {
     return (
         <div className="all_continents">
             <h1>Asia</h1>
-            <p>From the nomadic steppes of Kazakhstan to the frenetic streets of Hanoi, Asia is a continent so full of intrigue, adventure, solace and spirituality that it has fixated and confounded travellers for centuries.</p>
-            <div>
-            <Autocomplete
-              apiKey={process.env.REACT_APP_GOOGLE_API}
-              onPlaceSelected={(place) => {
-                console.log(place.formatted_address);
-              }}
-              placeholder="Search for a country"
-            />
-            </div>
+            <p className="continent_desc">From the nomadic steppes of Kazakhstan to the frenetic streets of Hanoi, Asia is a continent so full of intrigue, adventure, solace and spirituality that it has fixated and confounded travellers for centuries.</p>
             <div className="continent_container">
                 {asiaList}
             </div>

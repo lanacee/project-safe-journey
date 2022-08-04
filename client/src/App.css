@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -158,6 +159,20 @@
   color: grey;
 }
 
-.nav_review :hover{
+.nav_review :hover {
   color: grey;
+}
+
+@media (max-width: 400px) {
+
+  .continentDesc {
+    visibility: hidden;
+  }
+
+  .continentTitle {
+    visibility: visible;
+    position: absolute;
+    bottom: 5px;
+    left: 55px;
+  }
 }
