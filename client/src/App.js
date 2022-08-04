@@ -37,7 +37,7 @@ const App = () => {
   };
 
   const handleLogout = () => {
-    setAuthorised(null);
+    setAuthorised(false);
     navigate("/");
   };
 
@@ -47,6 +47,7 @@ const App = () => {
       const data = await res.json();
       console.log(data.msg);
       setAuthorised(data.authorised);
+      setUser(data.user)
     };
     checkIfLoggedIn();
   }, []);
@@ -64,7 +65,7 @@ const App = () => {
 
   useEffect(() => {
     getReviews()
-  }, [])
+  }, [0])
 
   const handleCreate = (name) => {
     console.log('App.js create review with name:', name)
@@ -92,7 +93,7 @@ const App = () => {
         <Route path="/support" element={<Services />} />
         <Route path="/reviews/new" element={
           <ProtectedRoute authorised={authorised}>
-           {reviews && user && <Form countries={countries} user={user} />}
+           {user && <Form countries={countries} user={user} />}
           </ProtectedRoute>
         } />
         <Route

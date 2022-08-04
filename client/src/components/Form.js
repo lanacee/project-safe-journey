@@ -100,7 +100,6 @@ const Ratings = ({ name, handleChange, value }) => {
 };
 
 const defaultValues = {
-  user_id: "",
   country: "",
   racism_experience: "0",
   lgbtqi_acceptance: "0",
@@ -131,14 +130,13 @@ const Form = ({ countries, user }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(fields);
     // Connect to API fetch('/something', {method: "POST"})
     fetch(`/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(fields),
+      body: JSON.stringify({...fields, user_id: user.id}),
     }).then((res) => {
       // return res.json();
     });
