@@ -152,3 +152,12 @@
   margin: 0 auto;
   margin-right: 308px;
 }
+
+.nav_review {
+  text-decoration: none;
+  color: grey;
+}
+
+.nav_review :hover{
+  color: grey;
+}

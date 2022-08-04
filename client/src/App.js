@@ -18,6 +18,7 @@ import CountryReviewDetail from "./components/CountryReviewDetail"
 import Countries from "./components/Countries";
 import Services from "./components/Services";
 import Edit from "./components/Edit";
+import Search from "./components/Search";
 
 import Africa from "./components/Continents/Africa"
 import Asia from "./components/Continents/Asia"
@@ -98,6 +99,7 @@ const App = () => {
 
   return (
     <div className="App">
+      
       <NavBar authorised={authorised} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Home />} />
