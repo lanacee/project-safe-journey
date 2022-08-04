@@ -10,7 +10,7 @@ const CountryCard = (props) => {
     return (
         <div className="countries_item">
             <img className="countries_img" src={"https://placeimg.com/"+randomInteger+"/"+randomInteger+"/arch"} alt="random architecture" />
-            <Link className="countries_link" to={"/"+props.country.name}><h3 className="countries_link">{props.country.name}</h3></Link>
+            <Link className="countries_link" to={"/countries/"+props.country.name}><h3 className="countries_link">{props.country.name}</h3></Link>
         </div>
     )
 }

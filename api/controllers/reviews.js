@@ -38,7 +38,7 @@ reviewsRouter.get("/countries/:countryname", async (req, res) => {
 // I'm working on putting the new review into the respective country page
 reviewsRouter.post("/countries/:countryname", async (req, res) => {
   const newReview = await Review.create({
-    user_id: req.session.currentUser,
+    user_id: req.session.currentUser._id,
     country: req.params.countryname,
     racism_experience: req.body.racism_experience,
     lgbtqi_experience: req.body.lgbtqi_experience,

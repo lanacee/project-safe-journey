@@ -13,7 +13,7 @@ import Logout from "./components/Users/Logout";
 import Register from "./components/Users/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Form from "./components/Form";
-import CountryReviews from "./components/CountryReviews";
+import UserReviews from "./components/UserReviews";
 import CountryReviewDetail from "./components/CountryReviewDetail"
 import Countries from "./components/Countries";
 import Services from "./components/Services";
@@ -27,10 +27,12 @@ import SAmerica from "./components/Continents/South-America"
 
 const App = () => {
   const [authorised, setAuthorised] = useState(null);
+  const [user, setUser] = useState(null)
   const navigate = useNavigate();
 
   const handleAuth = (authed) => {
-    setAuthorised(authed);
+    setAuthorised(authed.authorised);
+    setUser(authed.user)
     navigate("/");
   };
 
@@ -52,7 +54,9 @@ const App = () => {
   const [reviews, setReviews] = useState(null)
 
   const getReviews = async () => {
-    const url = 'http://localhost:4000/countries/:countryName'
+
+    const url = '/reviews'
+
     const res = await fetch(url)
     const data = await res.json()
     setReviews(data)
@@ -66,8 +70,10 @@ const App = () => {
     console.log('App.js create review with name:', name)
   }
 
-  const handleDelete = async (review) => {
-    await fetch(`http://localhost:4000/countries/${review.country}`, {
+
+  const handleDelete = async (reviewID) => {
+    await fetch(`/countries/${reviewID}`, {
+
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
@@ -90,14 +96,19 @@ const App = () => {
           </ProtectedRoute>
         } />
         <Route
-          path="/countries/:countryName"
-          element={reviews && <CountryReviews
+
+          path="/my-reviews"
+          element={reviews && user && <UserReviews
+
             reviews={reviews}
+            user={user}
             handleCreate={handleCreate}
             handleDelete={handleDelete}
           />}
         />
-        <Route path="/:countryName/:reviewID" element={reviews && <CountryReviewDetail reviews={reviews} />} />
+
+        <Route path="/countries/:countryname" element={reviews && <CountryReviewDetail reviews={reviews} />} />
+
         <Route
           path="/register"
           element={<Register handleRegister={handleAuth} />}
