@@ -3,7 +3,6 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 
 import "./App.css";
 import countryData from "./data/countries-data.json";
-import countries from "./data/countries-data.json";
 
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
@@ -18,7 +17,6 @@ import CountryReviewDetail from "./components/CountryReviewDetail";
 import Countries from "./components/Countries";
 import Services from "./components/Services";
 import Edit from "./components/Edit";
-import Search from "./components/Search";
 
 import Africa from "./components/Continents/Africa";
 import Asia from "./components/Continents/Asia";
@@ -128,13 +126,7 @@ const App = () => {
           path="/reviews/new"
           element={
             <ProtectedRoute authorised={authorised}>
-              {user && (
-                <Form
-                  countries={countries}
-                  user={user}
-                  createReview={createReview}
-                />
-              )}
+              {user && <Form user={user} createReview={createReview} />}
             </ProtectedRoute>
           }
         />
