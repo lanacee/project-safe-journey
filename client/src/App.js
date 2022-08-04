@@ -10,23 +10,16 @@ import { useState, useEffect } from "react";
 import Register from "./components/Users/Register";
 
 import countries from "./data/countries-data.json";
-import Africa from "./components/Continents/Africa"
-import Asia from "./components/Continents/Asia"
-import Europe from "./components/Continents/Europe"
-import NAmerica from "./components/Continents/North-America"
-import Oceania from "./components/Continents/Oceania"
-import SAmerica from "./components/Continents/South-America"
+import Africa from "./components/Continents/Africa";
+import Asia from "./components/Continents/Asia";
+import Europe from "./components/Continents/Europe";
+import NAmerica from "./components/Continents/North-America";
+import Oceania from "./components/Continents/Oceania";
+import SAmerica from "./components/Continents/South-America";
 
 const App = () => {
   const [authorised, setAuthorised] = useState(null);
   const navigate = useNavigate();
-  fetch(`${process.env.REACT_APP_API_ENDPOINT}/reviews`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data);
-    });
 
   const handleAuth = (authed) => {
     setAuthorised(authed);
@@ -40,9 +33,7 @@ const App = () => {
 
   useEffect(() => {
     const checkIfLoggedIn = async () => {
-      const res = await fetch(
-        `${process.env.REACT_APP_API_ENDPOINT}/users/isauthorised`
-      );
+      const res = await fetch(`/users/isauthorised`);
       const data = await res.json();
       console.log(data.msg);
       setAuthorised(data.authorised);

@@ -130,7 +130,7 @@ const Form = ({ countries }) => {
     event.preventDefault();
     console.log(fields);
     // Connect to API fetch('/something', {method: "POST"})
-    fetch(`${process.env.REACT_APP_API_ENDPOINT}/reviews`, {
+    fetch(`/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
