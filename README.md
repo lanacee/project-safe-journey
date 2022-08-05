@@ -2,7 +2,7 @@
 
 Travel can be amazing and life-changing, but for some people, like members of the LGBTQIA+ community, people of colour and women, it can also mean discrimination and harassment. Safe Journey was created so users can share and report their travel experiences. Users can give a country a rating out of 5 and a detailed review. Sharing this information allows others to be prepared and to make well-informed decisions about where and how they travel.
 
-[View the app here](https://safe-journey-travels.herokuapp.com/my-reviews)
+[View the app here](https://safe-journey-travels.herokuapp.com/)
 
 Sample account:
 
