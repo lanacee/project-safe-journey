@@ -29,6 +29,8 @@ html {
 .continentDesc {
   font-size: 14px;
   color: black;
+  max-width: 70%;
+  margin: 0 auto;
 }
 
 .register {
@@ -154,10 +156,20 @@ html {
     visibility: hidden;
   }
 
+  .carouselImg {
+    max-width: 75%;
+  }
+
   .continentTitle {
     visibility: visible;
     position: absolute;
     bottom: 5px;
     left: 55px;
+    text-decoration: underline;
+  }
+
+  .quote {
+    height: fit-content;
+    max-width: 75%;
   }
 }
