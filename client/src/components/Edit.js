@@ -45,11 +45,11 @@ const Edit = (props) => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <div className="d-flex justify-content-center">
+        <div>
           <h1>Edit your review</h1>
         </div>
         <div>
-          <p className="mb-2 d-flex justify-content-center">Country</p>
+          <p>Country</p>
           <input
             type="text"
             name="country"
@@ -91,7 +91,7 @@ const Edit = (props) => {
         <div>
           <p className="mb-2 d-flex justify-content-center">Description</p>
           <textarea
-            className="mb-2 d-flex align-content-center"
+            className="mb-2 d-flex justify-content-center"
             name="description"
             value={check.description}
             onChange={handleChange}

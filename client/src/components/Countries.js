@@ -63,6 +63,7 @@ const Countries = (props) => {
 
   return (
     <div>
+      <Link to="/">←Back</Link>
       <h1 className="all_countries">All Countries</h1>
       <Select
         options={options}

@@ -1,14 +1,15 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from "react-router-dom";
+import "../App.css";
 
 const CountryReviewDetail = (props) => {
+  const { countryname } = useParams();
 
-  const { countryname } = useParams()
-
-  const review = props.reviews.find((review) => review.country === countryname)
+  const review = props.reviews.find((review) => review.country === countryname);
   console.log(review);
 
   return (
     <div>
+      <Link to="/countries">←Back</Link>
       <h3>{countryname} Reviews:</h3>
 
       <table>
@@ -32,7 +33,7 @@ const CountryReviewDetail = (props) => {
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
-export default CountryReviewDetail
+export default CountryReviewDetail;
