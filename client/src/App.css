@@ -139,6 +139,16 @@ html {
   text-align: center;
 }
 
+.country_form {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.country_text {
+  padding-right: 10px;
+}
+
 @media (max-width: 400px) {
   .continentDesc {
     visibility: hidden;
