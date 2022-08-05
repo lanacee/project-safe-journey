@@ -4,7 +4,7 @@ import { useState } from "react";
 import Select from "react-select";
 import "./Continents.css";
 
-const EuroList = (props) => {
+const EuroCountries = (props) => {
   let min = Math.ceil(400);
   let max = Math.floor(600);
   const randomInteger = Math.floor(Math.random() * (max - min) + min);
@@ -21,7 +21,7 @@ const EuroList = (props) => {
         }
         alt="random nature"
       />
-      <Link className="continent_link" to={"/" + props.country.name}>
+      <Link className="continent_link" to={"/countries/" + props.country.name}>
         <h3 className="continent_link">{props.country.name}</h3>
       </Link>
     </div>
@@ -36,8 +36,8 @@ const Europe = () => {
     const options = euroData.map((country) => {
         return { label: country.name, value: country.name };
     });
-  const euroList = euroData.map((country) => {
-    return <EuroList country={country} key={country._id} />;
+  const EuroList = euroData.map((country) => {
+    return <EuroCountries country={country} key={country._id} />;
   });
   return (
     <div className="all_continents">
@@ -55,7 +55,7 @@ const Europe = () => {
                 onChange={handleSelect}
             />
             <div className="continent_container">
-                {country ? <euroList country={country} key={country._id} /> : euroList}
+                {country ? <EuroCountries country={country} key={country._id} /> : EuroList}
             </div>
     </div>
   );
