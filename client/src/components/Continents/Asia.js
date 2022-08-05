@@ -29,18 +29,19 @@ const AsiaCountries = (props) => {
 };
 
 const Asia = () => {
-    const [country, setCountry] = useState(null);
-    const handleSelect = ({ value }) => {
-        setCountry({ name: value });
-    };
-    const options = asiaData.map((country) => {
-        return { label: country.name, value: country.name };
-    });
+  const [country, setCountry] = useState(null);
+  const handleSelect = ({ value }) => {
+    setCountry({ name: value });
+  };
+  const options = asiaData.map((country) => {
+    return { label: country.name, value: country.name };
+  });
   const AsiaList = asiaData.map((country) => {
     return <AsiaCountries country={country} key={country._id} />;
   });
   return (
     <div className="all_continents">
+      <Link to="/">←Back</Link>
       <h1>Asia</h1>
       <p className="continent_desc">
         From the nomadic steppes of Kazakhstan to the frenetic streets of Hanoi,
@@ -49,15 +50,19 @@ const Asia = () => {
         centuries.
       </p>
       <Select
-                options={options}
-                name="country"
-                placeholder="Choose your country"
-                isSearchable
-                onChange={handleSelect}
-            />
-            <div className="continent_container">
-                {country ? <AsiaCountries country={country} key={country._id} /> : AsiaList}
-            </div>
+        options={options}
+        name="country"
+        placeholder="Choose your country"
+        isSearchable
+        onChange={handleSelect}
+      />
+      <div className="continent_container">
+        {country ? (
+          <AsiaCountries country={country} key={country._id} />
+        ) : (
+          AsiaList
+        )}
+      </div>
     </div>
   );
 };

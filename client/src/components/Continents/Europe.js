@@ -29,18 +29,19 @@ const EuroCountries = (props) => {
 };
 
 const Europe = () => {
-    const [country, setCountry] = useState(null);
-    const handleSelect = ({ value }) => {
-        setCountry({ name: value });
-    };
-    const options = euroData.map((country) => {
-        return { label: country.name, value: country.name };
-    });
+  const [country, setCountry] = useState(null);
+  const handleSelect = ({ value }) => {
+    setCountry({ name: value });
+  };
+  const options = euroData.map((country) => {
+    return { label: country.name, value: country.name };
+  });
   const EuroList = euroData.map((country) => {
     return <EuroCountries country={country} key={country._id} />;
   });
   return (
     <div className="all_continents">
+      <Link to="/">←Back</Link>
       <h1>Europe</h1>
       <p className="continent_desc">
         There simply is no way to tour Europe and not be awestruck by its
@@ -48,15 +49,19 @@ const Europe = () => {
         diversity.
       </p>
       <Select
-                options={options}
-                name="country"
-                placeholder="Choose your country"
-                isSearchable
-                onChange={handleSelect}
-            />
-            <div className="continent_container">
-                {country ? <EuroCountries country={country} key={country._id} /> : EuroList}
-            </div>
+        options={options}
+        name="country"
+        placeholder="Choose your country"
+        isSearchable
+        onChange={handleSelect}
+      />
+      <div className="continent_container">
+        {country ? (
+          <EuroCountries country={country} key={country._id} />
+        ) : (
+          EuroList
+        )}
+      </div>
     </div>
   );
 };
