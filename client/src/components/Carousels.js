@@ -6,7 +6,7 @@ function Carousels() {
     return (
         <div>
             <hr />
-            <h2>Browse by Continent</h2>
+            <h2 className="browse">Browse by Continent</h2>
             <Carousel>
                 <Carousel.Item>
                     <img

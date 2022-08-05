@@ -151,6 +151,10 @@ html {
   padding-right: 10px;
 }
 
+.browse {
+  text-align: center;
+}
+
 @media (max-width: 400px) {
   .continentDesc {
     visibility: hidden;
