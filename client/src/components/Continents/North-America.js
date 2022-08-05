@@ -29,33 +29,34 @@ const NaCountries = (props) => {
 };
 
 const NAmerica = () => {
-    const [country, setCountry] = useState(null);
-    const handleSelect = ({ value }) => {
-        setCountry({ name: value });
-    };
-    const options = naData.map((country) => {
-        return { label: country.name, value: country.name };
-    });
+  const [country, setCountry] = useState(null);
+  const handleSelect = ({ value }) => {
+    setCountry({ name: value });
+  };
+  const options = naData.map((country) => {
+    return { label: country.name, value: country.name };
+  });
   const NaList = naData.map((country) => {
     return <NaCountries country={country} key={country._id} />;
   });
   return (
     <div className="all_continents">
+      <Link to="/">←Back</Link>
       <h1>North America</h1>
       <p className="continent_desc">
         The heart of North America beats through towering forests, undulating
         fields, high-plain deserts, pulsating metropolises and offbeat oases.
       </p>
       <Select
-                options={options}
-                name="country"
-                placeholder="Choose your country"
-                isSearchable
-                onChange={handleSelect}
-            />
-            <div className="continent_container">
-                {country ? <NaCountries country={country} key={country._id} /> : NaList}
-            </div>
+        options={options}
+        name="country"
+        placeholder="Choose your country"
+        isSearchable
+        onChange={handleSelect}
+      />
+      <div className="continent_container">
+        {country ? <NaCountries country={country} key={country._id} /> : NaList}
+      </div>
     </div>
   );
 };
