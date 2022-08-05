@@ -52,7 +52,7 @@ Our approach was influenced by agile methodologies. We used Trello (Kanban board
 
 We used Figma to create a detailed mockup of the app.
 
-[Photo to come](#)
+[Trello](./readme-images/Trello-screenshot.png)
 
 ## Achievements
 
