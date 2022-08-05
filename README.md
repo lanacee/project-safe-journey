@@ -15,13 +15,14 @@ Password: demo
 - Full CRUD (Create, Read, Update, Delete) functionality for reviews
 
 - Multiple ways to access reviews:
-    - Search for a country with Google Maps API
+    - Search for a country
 
     - Browse countries by continent
     - View an alphabetical list of all countries
 - Create account and login and logout
 - Checks if user is logged in before allowing a user to add, edit or delete their own reviews
 
+- About page
 - Links to support services for users
 
 ## Technologies used
@@ -36,7 +37,6 @@ Safe Journey is a full-stack responsive application using the MERN stack of Mong
 - Express
 - React
 - MongoDB
-- Google Maps API
 - Heroku
 - GitHub
 - Figma
@@ -52,7 +52,7 @@ Our approach was influenced by agile methodologies. We used Trello (Kanban board
 
 We used Figma to create a detailed mockup of the app.
 
-[Photo to come](#)
+[Trello](TBC)
 
 ## Achievements
 
