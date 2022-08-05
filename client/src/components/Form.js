@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Form.css";
 import countries from "../data/countries-data.json";
 import Select from "react-select";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Ratings = ({ name, handleChange, value }) => {
   return (
@@ -150,6 +150,7 @@ const Form = ({ user, createReview }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Link to="/">←Back</Link>
       <div>
         <h1>Submit a review</h1>
         <p>What was your experience of travelling in this country?</p>
