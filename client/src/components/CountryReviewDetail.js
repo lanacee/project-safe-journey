@@ -1,10 +1,10 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from "react-router-dom";
+import "../App.css";
 
 const CountryReviewDetail = (props) => {
+  const { countryname } = useParams();
 
-  const { countryname } = useParams()
-
-  const review = props.reviews.find((review) => review.country === countryname)
+  const review = props.reviews.find((review) => review.country === countryname);
   console.log(review);
 
   if (review) {
@@ -45,4 +45,4 @@ const CountryReviewDetail = (props) => {
 
 }
 
-export default CountryReviewDetail
+export default CountryReviewDetail;
