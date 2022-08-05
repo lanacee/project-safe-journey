@@ -48,8 +48,13 @@ const Edit = (props) => {
         <div>
           <h1>Edit your review</h1>
         </div>
+
         <div>
           <p>Country</p>
+
+        <div className="country_form">
+          <p className="mb-2 d-flex justify-content-center country_text">Country</p>
+
           <input
             type="text"
             name="country"
@@ -88,8 +93,8 @@ const Edit = (props) => {
         {/* <p>Experience of Racism</p><input type="number" name="racism_experience" value={check.racism_experience} onChange={handleChange} />
             <p>Experience as person of the LGBTQIA+ Community</p><input type="number" name="lgbtqi_acceptance" value={check.lgbtqi_acceptance} onChange={handleChange} />
             <p>Experience as a person identifying as a woman</p><input type="number" name="womens_safety" value={check.womens_safety} onChange={handleChange} /> */}
-        <div>
-          <p className="mb-2 d-flex justify-content-center">Description</p>
+        <div className="country_form">
+          <p className="mb-2 d-flex justify-content-center country_text">Description</p>
           <textarea
             className="mb-2 d-flex justify-content-center"
             name="description"
@@ -100,7 +105,7 @@ const Edit = (props) => {
           />
         </div>
 
-        <div>
+        <div className="country_form">
           <button type="submit">Save</button>
         </div>
       </form>

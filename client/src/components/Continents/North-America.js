@@ -1,5 +1,7 @@
 import naData from "../../data/north-america-data.json";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Select from "react-select";
 import "./Continents.css";
 
 const NaList = (props) => {
@@ -27,6 +29,13 @@ const NaList = (props) => {
 };
 
 const NAmerica = () => {
+    const [country, setCountry] = useState(null);
+    const handleSelect = ({ value }) => {
+        setCountry({ name: value });
+    };
+    const options = naData.map((country) => {
+        return { label: country.name, value: country.name };
+    });
   const naList = naData.map((country) => {
     return <NaList country={country} key={country._id} />;
   });
@@ -37,7 +46,16 @@ const NAmerica = () => {
         The heart of North America beats through towering forests, undulating
         fields, high-plain deserts, pulsating metropolises and offbeat oases.
       </p>
-      <div className="continent_container">{naList}</div>
+      <Select
+                options={options}
+                name="country"
+                placeholder="Choose your country"
+                isSearchable
+                onChange={handleSelect}
+            />
+            <div className="continent_container">
+                {country ? <naList country={country} key={country._id} /> : naList}
+            </div>
     </div>
   );
 };

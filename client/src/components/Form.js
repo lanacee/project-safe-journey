@@ -155,7 +155,7 @@ const Form = ({ user, createReview }) => {
         <h1>Submit a review</h1>
         <p>What was your experience of travelling in this country?</p>
       </div>
-
+      
       <Select
         options={options}
         // value={fields.country}
@@ -164,7 +164,7 @@ const Form = ({ user, createReview }) => {
         isSearchable
         onChange={handleSelect}
       />
-
+      <br /><p className="star_context">(More stars represent a worse experience)</p>
       <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-center">
         <label>As a member of the LGBTQIA+ community</label>
         <Ratings
