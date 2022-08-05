@@ -60,22 +60,22 @@ const Countries = (props) => {
     const handleSelect = ({ value }) => {
         setCountry({ name: value });
     };
-
-    return (
-        <div>
-            <h1 className="all_countries">All Countries</h1>
-            <Select
-                options={options}
-                name="country"
-                placeholder="Choose your country"
-                isSearchable
-                onChange={handleSelect}
-            />
-            <div className="countries_container">
-                {country ? <CountryCard country={country} /> : countryItems}
-            </div>
-        </div>
-    );
+  return (
+    <div>
+      <Link to="/">←Back</Link>
+      <h1 className="all_countries">All Countries</h1>
+      <Select
+        options={options}
+        name="country"
+        placeholder="Choose your country"
+        isSearchable
+        onChange={handleSelect}
+      />
+      <div className="countries_container">
+        {country ? <CountryCard country={country} /> : countryItems}
+      </div>
+    </div>
+  );
 };
 
 export default Countries;

@@ -45,11 +45,15 @@ const Edit = (props) => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <div className="d-flex justify-content-center">
+        <div>
           <h1>Edit your review</h1>
         </div>
+
         <div className="country_form">
-          <p className="mb-2 d-flex justify-content-center country_text">Country</p>
+          <p className="mb-2 d-flex justify-content-center country_text">
+            Country
+          </p>
+
           <input
             type="text"
             name="country"
@@ -89,9 +93,11 @@ const Edit = (props) => {
             <p>Experience as person of the LGBTQIA+ Community</p><input type="number" name="lgbtqi_acceptance" value={check.lgbtqi_acceptance} onChange={handleChange} />
             <p>Experience as a person identifying as a woman</p><input type="number" name="womens_safety" value={check.womens_safety} onChange={handleChange} /> */}
         <div className="country_form">
-          <p className="mb-2 d-flex justify-content-center country_text">Description</p>
+          <p className="mb-2 d-flex justify-content-center country_text">
+            Description
+          </p>
           <textarea
-            className="mb-2 d-flex align-content-center"
+            className="mb-2 d-flex justify-content-center"
             name="description"
             value={check.description}
             onChange={handleChange}
